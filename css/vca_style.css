@@ -1,3 +1,118 @@
+/* ==========================================
+   UAT REVIEW WATERMARK
+========================================== */
+
+.uat-watermark {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 9rem;
+  font-weight: 900;
+  letter-spacing: 10px;
+  color: rgba(184, 139, 61, 0.05);
+  transform: rotate(-30deg);
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+  text-transform: uppercase;
+}
+
+/* ==========================================
+   UAT REVIEW BADGE
+========================================== */
+
+.uat-badge {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  background: rgba(184, 139, 61, 0.95);
+  color: white;
+  padding: 14px 18px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  z-index: 99999;
+  pointer-events: none;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  animation: badgeFloat 4s ease-in-out infinite;  
+}
+
+.badge-title{
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.badge-subtitle{
+    margin-top:4px;
+    font-size:11px;
+    opacity:.95;
+}
+
+body::before{
+    content:"UAT • TEST VERSION • NOT LIVE";
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(-30deg);
+
+    font-size:9rem;
+    font-weight:900;
+    letter-spacing:8px;
+
+    color:#c79a3d;
+    opacity:.12;
+
+    pointer-events:none;
+    user-select:none;
+
+    z-index:0;
+}
+
+@keyframes badgeFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-5px);
+    }
+}
+
+@media (max-width:768px){
+
+    .uat-watermark{
+
+        font-size:4rem;
+
+        letter-spacing:4px;
+
+    }
+
+    .uat-badge{
+
+        right:15px;
+        bottom:15px;
+
+        padding:10px 14px;
+
+    }
+
+    .badge-title{
+
+        font-size:11px;
+
+    }
+
+    .badge-subtitle{
+
+        font-size:10px;
+
+    }
+
+}
+
 /* ================================
    VCA WEBSITE GLOBAL STYLES
 ================================ */
