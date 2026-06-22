@@ -143,168 +143,6 @@ body {
 }
 
 
-
-
-/* ================================
-   LANDING PAGE
-================================ */
-
-.landing-page {
-  width: 100%;
-  min-height: 100vh;
-}
-
-.landing-hero {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-  isolation: isolate;
-  background: #001b57;
-}
-
-/* DEFAULT: CHURCH IMAGE VISIBLE */
-.landing-hero-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 60%;
-  opacity: 1;
-  z-index: -4;
-  transition: opacity 0.8s ease;
-}
-
-/* VIDEO HIDDEN BY DEFAULT */
-.hero-video-container {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  opacity: 0;
-  z-index: -3;
-  background: #001b57;
-  transition: opacity 0.8s ease;
-}
-
-.hero-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  object-fit: cover;
-  opacity: 0;
-  filter: brightness(0.65) saturate(0.75) hue-rotate(8deg);
-  transition: opacity 1s ease;
-}
-
-.hero-video.active-video {
-  opacity: 1;
-}
-
-/* AFTER 5 SECONDS: SHOW VIDEO */
-.landing-hero.show-video .landing-hero-image {
-  opacity: 0;
-}
-
-.landing-hero.show-video .hero-video-container {
-  opacity: 1;
-}
-
-/* BLUISH VIDEO TINT */
-.hero-video-container::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 27, 87, 0.45);
-  pointer-events: none;
-}
-
-/* MAIN BLUE OVERLAY FOR READABILITY */
-.landing-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    linear-gradient(
-      to right,
-      rgba(0, 20, 65, 0.94) 0%,
-      rgba(0, 20, 65, 0.84) 30%,
-      rgba(0, 20, 65, 0.58) 60%,
-      rgba(0, 20, 65, 0.38) 100%
-    );
-}
-
-/* CONTENT */
-.landing-content {
-  min-height: 100vh;
-  max-width: 520px;
-  margin-left: 12%;
-  padding: 72px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: var(--white);
-  animation: fadeUp 1s ease;
-  position: relative;
-  z-index: 2;
-}
-
-/* keep your existing logo/title/button CSS below */
-
-.landing-logo {
-  width: 260px;
-  height: auto;
-  margin-bottom: 26px;
-  display: block;
-}
-
-.landing-title {
-  font-size: clamp(2.7rem, 5vw, 4.4rem);
-  line-height: 0.92;
-  font-weight: 900;
-  letter-spacing: -1px;
-  margin-bottom: 26px;
-}
-
-.landing-description {
-  max-width: 500px;
-  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
-  line-height: 1.65;
-  margin-bottom: 34px;
-  color: rgba(255, 255, 255, 0.92);
-}
-
-.landing-btn {
-  width: fit-content;
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  background: var(--vca-blue);
-  color: var(--white);
-  border: 2px solid rgba(255, 255, 255, 0.65);
-  padding: 14px 26px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 900;
-  letter-spacing: 0.8px;
-  transition: 0.3s ease;
-}
-
-.landing-btn:hover {
-  background: #1a2d64;
-  transform: translateY(-3px);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
-}
-
-.landing-btn span {
-  font-size: 1.4rem;
-  line-height: 1;
-}
-
 /* ================================
    HOME PAGE REDESIGN
 ================================ */
@@ -326,7 +164,7 @@ body {
 }
 
 .site-logo img {
-  width: 150px;
+  width: 250px;
 }
 
 .main-nav {
@@ -364,6 +202,15 @@ body {
 
 /* HERO */
 
+.home-header{
+    padding-top:32px;
+}
+
+.home-header .header-inner{
+    width:min(1180px,90%);
+    justify-content:flex-end;
+}
+
 .home-hero {
   min-height: 640px;
   background:
@@ -383,6 +230,17 @@ body {
   display: flex;
   align-items: center;
   padding-top: 90px;
+}
+
+.home-hero.landing-style-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #001b57;
+  display: block;
+  padding-top: 0;
 }
 
 
@@ -442,6 +300,217 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+}
+
+/* DEFAULT: CHURCH IMAGE VISIBLE */
+.landing-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  opacity: 1;
+  z-index: -4;
+  transition: opacity 0.8s ease;
+}
+
+/* VIDEO HIDDEN BY DEFAULT */
+.hero-video-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0;
+  z-index: -3;
+  background: #001b57;
+  transition: opacity 0.8s ease;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+  opacity: 0;
+  filter: brightness(0.65) saturate(0.75) hue-rotate(8deg);
+  transition: opacity 1s ease;
+}
+
+.hero-video.active-video {
+  opacity: 1;
+}
+
+/* AFTER 5 SECONDS: SHOW VIDEO */
+.landing-hero.show-video .landing-hero-image,
+.landing-style-hero.show-video .landing-hero-image {
+  opacity: 0;
+}
+
+.landing-hero.show-video .hero-video-container,
+.landing-style-hero.show-video .hero-video-container {
+  opacity: 1;
+}
+
+/* BLUISH VIDEO TINT */
+.hero-video-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 27, 87, 0.45);
+  pointer-events: none;
+}
+
+/* MAIN BLUE OVERLAY FOR READABILITY */
+.landing-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      to right,
+      rgba(0, 20, 65, 0.94) 0%,
+      rgba(0, 20, 65, 0.84) 30%,
+      rgba(0, 20, 65, 0.58) 60%,
+      rgba(0, 20, 65, 0.38) 100%
+    );
+}
+
+/* CONTENT */
+.landing-content {
+  min-height: 100vh;
+  max-width: 620px;
+  margin-left: 12%;
+  padding-top: 155px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  position: relative;
+  z-index: 2;
+}
+
+.landing-title {
+  width: clamp(360px, 34vw, 560px);
+  margin-bottom: 42px;
+}
+
+.landing-title-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: none;
+  margin-top: 95px;
+}
+
+/* keep your existing logo/title/button CSS below */
+
+.landing-logo {
+  width: clamp(360px, 32vw, 540px);
+  height: auto;
+  margin-bottom: 34px;
+}
+
+.landing-btn {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 15px;
+  gap: 16px;
+  background: var(--vca-blue);
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  padding: 14px 26px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  transition: 0.3s ease;
+}
+
+.landing-btn:hover {
+  background: #1a2d64;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+}
+
+.landing-btn span {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.landing-content .primary-btn {
+  margin-top: 110px;
+  width: fit-content;
+  min-width: 130px;
+  min-height: 58px;
+  justify-content: center;
+  padding: 18px 34px;
+  border-radius: 0;
+  border: 2px solid rgba(255, 255, 255, 0.80);
+  background: linear-gradient(135deg, var(--vca-blue), #3155b8);
+  color: var(--white);
+  font-size: 0.92rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+
+  box-shadow: 0 18px 36px rgba(0,0,0,.28);
+
+  position: relative;
+  overflow: hidden;
+
+  animation: heroButtonPulse 2.8s ease-in-out infinite;
+}
+
+.landing-content .primary-btn:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, #3155b8, var(--vca-blue));
+  box-shadow: 0 24px 44px rgba(0,0,0,.35);
+}
+
+.landing-content .primary-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.35),
+    transparent
+  );
+
+  animation: buttonShine 3.5s ease-in-out infinite;
+}
+
+@keyframes heroButtonPulse {
+  0%, 100% {
+    box-shadow: 0 18px 36px rgba(0,0,0,.28);
+  }
+
+  50% {
+    box-shadow: 0 18px 36px rgba(0,0,0,.28),
+                0 0 0 8px rgba(255,255,255,.08);
+  }
+}
+
+@keyframes buttonShine {
+  0% {
+    left: -120%;
+  }
+
+  45%, 100% {
+    left: 130%;
+  }
 }
 
 /* =====================================
@@ -2652,7 +2721,7 @@ body.page-fade-out {
   }
 
   .site-logo img {
-    width: 128px;
+    width: 228px;
   }
 
   .quick-actions,
@@ -2918,16 +2987,6 @@ body.page-fade-out {
 
   .landing-logo {
     width: 160px;
-  }
-
-  .landing-title {
-    font-size: 2.8rem;
-    line-height: 1;
-  }
-
-  .landing-description {
-    font-size: 0.98rem;
-    line-height: 1.6;
   }
 
   .landing-btn,
@@ -3300,4 +3359,98 @@ body.page-fade-out {
   }
 }
 
+/* ================================
+   HOME HERO MOBILE IMPROVEMENT
+================================ */
+
+@media (max-width: 768px) {
+  .home-hero.landing-style-hero {
+    min-height: 100svh;
+  }
+
+  .landing-hero-image {
+    object-position: 62% center;
+  }
+
+  .landing-overlay {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(0, 20, 65, 0.82) 0%,
+        rgba(0, 20, 65, 0.76) 45%,
+        rgba(0, 20, 65, 0.92) 100%
+      );
+  }
+
+  .landing-content {
+    min-height: 100svh;
+    margin-left: 0;
+    padding: 105px 24px 80px;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .landing-logo {
+    width: min(92vw, 360px);
+    margin-bottom: 38px;
+  }
+
+  .landing-title {
+    width: min(88vw, 350px);
+    margin-bottom: 46px;
+  }
+
+  .landing-title-image {
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .landing-content .primary-btn {
+    width: auto;
+    min-width: 250px;
+    min-height: 58px;
+
+    margin-top: 55px;
+    padding: 17px 32px;
+
+    font-size: 0.85rem;
+  }
+
+  .uat-badge {
+    right: 12px;
+    bottom: 12px;
+    padding: 9px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-content {
+    padding: 90px 22px 76px;
+  }
+
+  .landing-logo {
+    width: min(90vw, 315px);
+    margin-bottom: 34px;
+  }
+
+  .landing-title {
+    width: min(88vw, 315px);
+    margin-bottom: 38px;
+  }
+
+  .landing-content .primary-btn {
+    min-width: 230px;
+    min-height: 54px;
+    margin-top: 45px;
+    padding: 15px 28px;
+    font-size: 0.8rem;
+  }
+
+  .uat-watermark {
+    font-size: 3rem;
+    opacity: 0.08;
+  }
+}
 

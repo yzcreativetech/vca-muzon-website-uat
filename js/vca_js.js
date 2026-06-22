@@ -158,7 +158,7 @@ if (verseText && verseRef) {
 
 /* INDEX LANDING BACKGROUND */
 
-const landingHero = document.querySelector(".landing-hero");
+const landingHero = document.querySelector(".landing-hero, .landing-style-hero");
 const heroVideos = document.querySelectorAll(".hero-video");
 
 let heroVideoIndex = 0;

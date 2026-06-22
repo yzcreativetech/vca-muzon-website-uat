@@ -4,83 +4,340 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Test Version</title>
+  <title>Home | Test Version</title>
 
-  <link rel="stylesheet" href="css/vca_style.css"/>
+  <link rel="stylesheet" href="css/vca_style.css" />
 </head>
 
 <body>
 
-  <!-- UAT Watermark -->
-  <div class="uat-watermark">
-    TEST VERSION
-  </div>
-
-  <!-- UAT Badge -->
-  <div class="uat-badge">
-    <div class="badge-title">TEST VERSION</div>
-    <div class="badge-subtitle">For Approval</div>
-  </div>
-
-  <main class="landing-page">
-
-    <section class="landing-hero">
-
-    <!-- Still image shown when user moves mouse -->
-    <img
-    src="assets/index/VCA_CHURCH.png"
-    alt="VCA Muzon Church"
-    class="landing-hero-image active-bg"
-    id="churchImage">
-
-    <div class="hero-video-container">
-      <video
-          class="hero-video"
-          autoplay
-          muted
-          loop
-          playsinline>
-
-          <source src="assets/index/vca_index_hero.mp4" type="video/mp4">
-
-      </video>
-
-      <video
-          class="hero-video"
-          autoplay
-          muted
-          loop
-          playsinline>
-
-          <source src="assets/index/vca_index_hero_2.mp4" type="video/mp4">
-
-      </video>
-
+    <!-- UAT Watermark -->
+    <div class="uat-watermark">
+        TEST VERSION
     </div>
-    <div class="landing-overlay"></div>
 
-    <div class="landing-content">
-      <img src="assets/index/VCA_LOGO.png" alt="VCA Muzon Logo" class="landing-logo">
-
-      <h1 class="landing-title">
-        REACH.<br>
-        TEACH.<br>
-        MOBILIZE.
-      </h1>
-
-      <p class="landing-description">
-        Reaching people with the Gospel of Jesus Christ.<br>
-        Teaching believers to become like Christ.<br>
-        Mobilizing God's people to impact the world.
-      </p>
-
-      <a href="home.html" class="landing-btn">
-        EXPLORE VCA <span>→</span>
-      </a>
+    <!-- UAT Badge -->
+    <div class="uat-badge">
+        <div class="badge-title">TEST VERSION</div>
+        <div class="badge-subtitle">For Approval</div>
     </div>
+
+    <header class="main-header home-header">
+        <div class="header-inner">
+            <nav class="main-nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="ministries.html">Ministries</a>
+                <a href="preachings.html">Preachings</a>
+                <a href="events.html">Events</a>
+                <a href="fellowship.html">Fellowship</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+
+        <section class="home-hero landing-style-hero animate-up">
+
+            <img
+                src="assets/index/VCA_CHURCH.png"
+                alt="VCA Muzon Church"
+                class="landing-hero-image active-bg"
+                id="churchImage"
+            >
+
+            <div class="hero-video-container">
+                <video class="hero-video" autoplay muted loop playsinline>
+                    <source src="assets/index/vca_index_hero.mp4" type="video/mp4">
+                </video>
+
+                <video class="hero-video" autoplay muted loop playsinline>
+                    <source src="assets/index/vca_index_hero_2.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="landing-overlay"></div>
+
+            <div class="landing-content">
+                <img
+                    src="assets/index/VCA_LOGO.png"
+                    alt="VCA Muzon Logo"
+                    class="landing-logo"
+                >
+
+                <div class="landing-title">
+                    <img
+                        src="assets/index/Reach Teach Mobilize.png"
+                        alt="Reach • Teach • Mobilize"
+                        class="landing-title-image"
+                    >
+                </div>
+
+                <a href="contact.html" class="primary-btn">
+                    Plan Your Visit <span>→</span>
+                </a>
+            </div>
+
+        </section>
+
+        <!-- FEATURED ANNOUNCEMENTS -->
+
+        <section class="announcement-section animate-up animate-delay-2" id="announcements">
+
+            <div class="section-title">
+                <h2>WHAT'S HAPPENING AT VCA</h2>
+                <p>Stay updated with our latest events, services, and announcements.</p>
+            </div>
+            <div class="announcement-carousel">
+                <!-- PREVIOUS BUTTON -->
+                <button class="carousel-btn prev-btn">
+                    &#10094;
+                </button>
+                <!-- SLIDE 1 -->
+                <div class="announcement-slide active">
+                    <img
+                        src="assets/home/welcome-image.jpg"
+                        alt="Announcement Image"
+                        class="announcement-image"
+                    >
+                    <div class="announcement-content">
+                        <h3>Welcome to VCA Muzon</h3>
+                        <p>
+                                
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2 -->
+
+                <div class="announcement-slide">
+
+                    <img
+                        src="assets/home/series.png"
+                        alt="Announcement Image"
+                        class="announcement-image"
+                    >
+
+                    <div class="announcement-content">
+
+                        <h3>Philippians Series</h3>
+
+                        <p>
+                            Re-wiring our internal perspective to match the external mission of the Kingdom
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- NEXT BUTTON -->
+
+                <button class="carousel-btn next-btn">
+                    &#10095;
+                </button>
+
+            </div>
+
+            <!-- DOTS -->
+
+            <div class="carousel-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+            </div>
+
+        </section>
+
+        <!--ABOUT-->
+        <section class="about-preview animate-up animate-delay-3">
+            <div class="about-text">
+                <p class="section-label">About VCA Muzon</p>
+                <h2>A FAMILY, A MISSION,<br>A PURPOSE.</h2>
+
+                <p>
+                    Victory Churches of Asia exists for the glory of God and the expansion of His Kingdom through reaching, teaching, and mobilizing people to
+                    become like Christ.
+                </p>
+
+                <p>
+                    At Victory Churches of Asia - Muzon, we are a community
+                    of believers committed to loving God, growing in His Word,
+                    and reaching others with the Gospel. Whether you are
+                    exploring faith for the first time or looking for a church
+                    family, you are welcome here.
+                </p>
+
+                <p class="script-text">You belong here.</p>
+
+                <a href="about.html" class="primary-btn small-btn">Learn More <span>→</span></a>                
+            </div>
+
+            <div class="about-image">
+                <img src="assets/home/home_image_01.jpg" alt="VCA Muzon Service">
+            </div>
+        </section>
+
+       <!-- SERVICE TIMES -->
+        <section class="service-section" id="service-times">
+            <h2 class="center-heading">SERVICE SCHEDULE</h2>
+
+            <div class="service-table">
+
+                <div class="service-group sunday-group">
+                    <h3>Sunday Service</h3>
+
+                    <div class="service-subgrid">
+                        <div class="service-column">
+                            <p>Morning</p>
+                            <strong>8:30AM</strong>
+                            <strong>10:30AM</strong>
+                            <span class="live-badge">LIVE STREAMING</span>
+                        </div>
+
+                        <div class="service-column">
+                            <p>Afternoon</p>
+                            <strong>4:30PM</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-group">
+                    <h3>Youth</h3>
+
+                    <div class="service-column">
+                        <p>Sunday</p>
+
+                        <div class="youth-time">
+                            <img
+                                src="assets/home/youth-logo.png"
+                                alt="Victory Youth Logo"
+                                class="youth-logo"
+                            >
+                            <strong>1:30PM</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-group">
+                    <h3>Midweek Service</h3>
+
+                    <div class="service-column">
+                        <p>Thursday</p>
+                        <strong>6:00PM</strong>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FEATURE CARDS -->
+    <section class="feature-section">
+
+        <div class="feature-card">
+            <img src="assets/home/church-ministry-home.jpg" alt="VCA ministries">
+            <div class="feature-content">
+            <h3>Our Ministries</h3>
+            <p>There’s a place for everyone.</p>
+            <a href="ministries.html">Explore Ministries →</a>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <img src="assets/home/church-preaching-home.jpg" alt="VCA preaching">
+            <div class="feature-content">
+            <h3>Preachings</h3>
+            <p>Stay inspired and grow in your faith.</p>
+            <a href="preachings.html">Watch Now →</a>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <img src="assets/home/church-events-home.jpg" alt="VCA events">
+            <div class="feature-content">
+            <h3>Upcoming Events</h3>
+            <p>Don’t miss what’s happening.</p>
+            <a href="events.html">View Events →</a>
+            </div>
+        </div>
 
     </section>
-  </main>
-  <script src="js/vca_js.js"></script>
+
+    <!-- NEW HERE -->
+    <section class="new-here">
+        <div>
+                <h2>NEW HERE?</h2>
+                <p>We can’t wait to meet you!</p>
+        </div>
+
+        <a href="contact.html" class="outline-btn">Plan Your Visit →</a>
+    </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <img 
+                    src="assets/index/VCA_LOGO.png"
+                    alt="VCA Muzon Logo"
+                    class="footer-logo"
+                >
+
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/share/1AFXgwuJR1/?mibextid=wwXIfr"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Facebook">
+                            <img src="assets/contact/fb_logo.png" alt="Facebook">
+                    </a>
+
+                    <a href="https://www.instagram.com/vcamuzonsjdm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram">
+                            <img src="assets/contact/ig_logo.png" alt="Instagram">
+                    </a>
+
+                    <a href="https://www.youtube.com/@vcamuzonsjdm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="YouTube">
+                            <img src="assets/contact/youtube_logo.png" alt="YouTube">
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="ministries.html">Ministries</a>
+                <a href="preachings.html">Preachings</a>
+                <a href="events.html">Events</a>
+                <a href="fellowship.html">Fellowship</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div>
+                <h4>Service Times</h4>
+                <p>Sunday<br>8:30 AM | 10:30 AM | 4:30 PM</p>
+                <p>Youth Service<br>1:30 PM</p>
+                <p>Midweek Service<br>Thursday • 6:00 PM</p>
+            </div>
+
+            <div>
+                <h4>Visit Us</h4>
+                <p>Victory Churches of Asia - Muzon<br>City of San Jose del Monte, Bulacan</p>
+                <a href="https://maps.google.com/?q=VCA+Muzon" class="footer-btn">Get Directions →</a>
+            </div>   
+        </div>
+            
+        <p class="copyright">
+        © 2025 Victory Churches of Asia - Muzon. All Rights Reserved.
+        </p>        
+    </footer>
+    <script src="js/vca_js.js"></script>
 </body>
 </html>
