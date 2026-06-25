@@ -906,12 +906,29 @@ body {
     margin: 0 0 8px;
 }
 
+.about-cta h2 {
+  font-size: clamp(2.35rem, 4.9vw, 3.45rem);
+  line-height: 1;
+}
+
 .new-here p {
     margin: 0;
 }
 
 .new-here > div {
     flex: 1;
+}
+
+.new-here .outline-btn {
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.new-here .outline-btn:hover,
+.new-here .outline-btn:focus-visible {
+  background: var(--white);
+  color: var(--vca-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
 }
 
 /* FOOTER */
@@ -1209,108 +1226,146 @@ body {
   margin-bottom: 16px;
 }
 
-/* MISSION VISION VALUES */
+/* MISSION & VISION */
 
 .mvv-section {
-  width: min(1100px, 88%);
-  margin: 40px auto 80px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
+  width: min(980px, 88%);
+  margin: 70px auto 80px;
 
-.mvv-icon {
-  width: 64px;
-  height: 64px;
-  margin: -70px auto 20px;
-  background: #001b57;
-  color: var(--white);
-  border-radius: 50%;
   display: grid;
-  place-items: center;
-  font-size: 1.6rem;
-  border: 4px solid var(--white);
+  grid-template-columns: 1fr;
+  gap: 80px;
 }
 
 .mvv-card {
-    background: var(--white);
-    border: 1px solid #d7e2f0;
-    border-radius: 16px;
-    padding: 38px 28px;
-    text-align: center;
-    box-shadow: 0 12px 30px rgba(35,59,130,.08);
+  position: relative;
+
+  background: var(--white);
+  border: 1px solid #d7e2f0;
+  border-radius: 18px;
+
+  padding: 64px 48px 54px;
+
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(35, 59, 130, .08);
+
+  display: flex;
+  flex-direction: column;
+
+  transition: .35s ease;
+}
+
+.mvv-card:last-child{
+    background:#fbfcff;
+}
+
+.mvv-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, .12);
+}
+
+.mvv-icon {
+  width: 76px;
+  height: 76px;
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background: linear-gradient(135deg, var(--vca-blue), #0c2f86);
+  color: var(--white);
+
+  border-radius: 50%;
+  border: 4px solid var(--white);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 10px 25px rgba(0, 27, 87, .25);
+  transition: .35s ease;
+}
+
+.mvv-icon i {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.mvv-card:hover .mvv-icon {
+  transform: translate(-50%, -50%) scale(1.08) rotate(8deg);
 }
 
 .mvv-card h3 {
   color: var(--vca-blue);
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
+  font-size: clamp(1.45rem, 3vw, 2rem);
 }
 
-.mvv-card p,
-.mvv-card li {
+.mvv-card p {
+  max-width: 720px;
+  margin: 0 auto 16px;
+
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.mvv-card strong {
+  color: var(--vca-blue);
+  font-size: 1rem;
+}
+
+.mvv-lead {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.strategy-list {
+  width: min(760px, 100%);
+  margin: 20px auto 0;
+
+  display: grid;
+  gap: 16px;
+}
+
+.strategy-item {
+  background: #f8fbff;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+
+  padding: 18px 22px;
+  text-align: left;
+
+  transition: .25s ease;
+}
+
+.strategy-item:hover {
+  transform: translateX(8px);
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(0, 27, 87, .08);
+}
+
+.strategy-item strong {
+  display: block;
+
+  color: var(--vca-blue);
   font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  margin-bottom: 5px;
+}
+
+.strategy-item span {
+  display: block;
+
+  color: #334155;
+  font-size: 0.94rem;
   line-height: 1.6;
 }
 
-.mvv-card ul {
-  list-style: none;
-}
-
-/* STORY TIMELINE */
-
-.story-section {
-  background: #f8fbff;
-  padding: 70px 20px;
-}
-
-.story-timeline {
-  width: min(1100px, 88%);
-  margin: 50px auto 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  position: relative;
-}
-
-.story-timeline::before {
-  content: "";
-  position: absolute;
-  top: 32px;
-  left: 10%;
-  right: 10%;
-  height: 2px;
-  background: #d7b56d;
-}
-
-.story-item {
-  text-align: center;
-  position: relative;
-  z-index: 2;
-}
-
-.story-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 18px;
-  border: 2px solid #d7b56d;
-  border-radius: 50%;
-  background: var(--white);
-  display: grid;
-  place-items: center;
-  font-size: 1.5rem;
-}
-
-.story-item h3 {
-  color: var(--vca-blue);
-  font-size: 1.4rem;
-  margin-bottom: 8px;
-}
-
-.story-item p {
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
 
 /* PASTOR MESSAGE */
 
@@ -1347,45 +1402,379 @@ body {
     margin-top: 25px;
 }
 
-/* BELIEFS */
+/* BELIEFS / TEN TENETS */
 
 .beliefs-section {
-  width: min(1100px, 88%);
-  margin: 70px auto;
+  width: min(980px, 88%);
+  margin: 80px auto;
+}
+
+
+.belief-card {  
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--gold);
+  border-top: 4px solid var(--gold);
+  border-radius: 16px;
+  padding: 26px 22px;
+  min-height: 185px;
+  box-shadow: 0 8px 22px rgba(35, 59, 130, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: 0.35s ease;
+  justify-content: flex-start;
+}
+
+.belief-card:hover {
+  border-color:var(--gold);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 27, 81, 0.12);
+}
+
+.belief-card::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+    width:0;
+    height:3px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+    );
+    border-radius:999px;
+    transition:width .35s ease;
+}
+
+.belief-card:hover::after {
+  width: 82%;
+}
+
+.belief-card::before {  
+  content: counter(tenet-counter, decimal-leading-zero);
+  counter-increment: tenet-counter;
+  color: rgba(35, 59, 130, 0.35);
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 10px;
 }
 
 .beliefs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 18px;
-    margin-top: 35px;
-}
-
-.belief-card {
-  background: var(--white);
-  border: 1px solid #d7e2f0;
-  border-radius: 14px;
-  padding: 22px;
-  box-shadow: 0 8px 22px rgba(35, 59, 130, 0.06);
+  counter-reset: tenet-counter;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 22px;
+  margin-top: 42px;
 }
 
 .belief-card h3 {
   color: var(--vca-blue);
-  margin-bottom: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 12px;
 }
 
 .belief-card p {
-  font-size: 0.9rem;
-  line-height: 1.5;
+  color: #334155;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  flex: 1;
 }
 
 .tenets-intro {
-    max-width: 760px;
-    margin: -10px auto 35px;
-    text-align: center;
-    color: #64748b;
-    line-height: 1.7;
+  max-width: 760px;
+  margin: -10px auto 35px;
+  text-align: center;
+  color: #64748b;
+  line-height: 1.7;
 }
+
+/* Story transition after Ten Tenets */
+
+.beliefs-transition {
+  max-width: 760px;
+  margin: 60px auto 0;
+  text-align: center;
+  color: #334155;
+  font-size: 1.05rem;
+  line-height: 1.8;
+
+}
+
+.beliefs-transition::before {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 3px;
+  background: var(--gold);
+  margin: 0 auto 26px;
+}
+
+/* STORY */
+
+.story-intro{
+    width:min(760px, 90%);
+    margin:120px auto 70px;
+    text-align:center;
+    position:relative;
+}
+
+.story-intro::before{
+    content:"";
+    display:block;
+    width:80px;
+    height:3px;
+    background:var(--gold);
+    margin:0 auto 28px;
+}
+
+.story-intro .section-label{
+    color:var(--gold);
+    font-size:.72rem;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:14px;
+}
+
+.story-intro h2{
+    font-size:clamp(2.3rem,4vw,3.6rem);
+    color:var(--vca-blue);
+    margin-bottom:22px;
+    line-height:1.15;
+}
+
+.story-intro p{
+    color:#475569;
+    font-size:1.05rem;
+    line-height:1.8;
+    max-width:700px;
+    margin:0 auto;
+}	
+
+/* ================================
+   ABOUT STORY NARRATIVE - REFINED
+================================ */
+
+.story-narrative-section {
+  background: #f8fbff;
+  padding: 80px 0 90px;
+  overflow: hidden;
+}
+
+/* Story intro */
+
+.story-intro,
+.story-ending {
+  width: min(780px, 88%);
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.story-intro::before {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 2px;
+  background: var(--gold);
+  margin: 0 auto 22px;
+}
+
+.story-intro .section-label,
+.story-ending .section-label {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.story-intro h2,
+.story-ending h2 {
+  color: #001b57;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.08;
+  margin-bottom: 18px;
+  text-transform: none;
+}
+
+.story-intro p,
+.story-ending p {
+  font-size: 1.04rem;
+  line-height: 1.85;
+  color: #334155;
+}
+
+/* Story chapters */
+
+.story-chapter {
+  width: min(1040px, 88%);
+  margin: 0 auto 82px;
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.story-chapter-reverse .story-image {
+  order: 2;
+}
+
+.story-chapter-reverse .story-text {
+  order: 1;
+}
+
+.story-image {
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 22px 46px rgba(35, 59, 130, 0.15);
+}
+
+.story-image img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 1.1s ease;
+}
+
+.story-chapter:hover .story-image img {
+  transform: scale(1.07);
+}
+
+.story-kicker {
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.story-text h3 {
+  color: #001b57;
+  font-size: clamp(1.7rem, 3vw, 2.55rem);
+  line-height: 1.08;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.story-text p {
+  color: #334155;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+/* Make local story feel more important */
+
+.local-story {
+  width: min(1080px, 88%);
+  margin-bottom: 95px;
+}
+
+.local-story .story-text h3 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.local-story .story-image img {
+  height: 420px;
+}
+
+/* Scripture divider */
+
+.story-scripture {
+  width: min(820px, 88%);
+  margin: 10px auto 86px;
+  padding: 58px 36px;
+  text-align: center;
+  position: relative;
+}
+
+.story-scripture::before {
+  content: "";
+  display: block;
+  width: 74px;
+  height: 3px;
+  background: var(--gold);
+  opacity: .7;
+  margin: 0 auto 26px;
+}
+
+.story-scripture p {
+  color: #001b57;
+  font-family: Georgia, serif;
+  font-size: clamp(1.65rem, 3vw, 2.65rem);
+  line-height: 1.35;
+  margin-bottom: 16px;
+}
+
+.story-scripture span {
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Ending */
+
+.story-ending {
+  max-width: 760px;
+  margin-bottom: 0;
+  padding: 40px 30px 0;
+}
+
+.story-ending h2 {
+  text-transform: uppercase;
+}
+
+.story-ending p {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Scroll reveal animation */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.story-chapter.reveal-on-scroll {
+  opacity: 1;
+  transform: none;
+}
+
+.story-chapter.reveal-on-scroll .story-image,
+.story-chapter.reveal-on-scroll .story-text {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.story-chapter.reveal-on-scroll .story-text {
+  transition-delay: 120ms;
+}
+
+.story-chapter.reveal-on-scroll.revealed .story-image,
+.story-chapter.reveal-on-scroll.revealed .story-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 /* ABOUT CTA */
 
@@ -2423,7 +2812,7 @@ body {
 
 .social-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 }
 
@@ -2653,9 +3042,71 @@ body.page-fade-out {
 
 }
 
+/* ================================
+   GLOBAL HEADER SPACING FIX
+   Applies to all pages except Home
+================================ */
+
+.page-header .header-inner {
+  width: min(1280px, 92%);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: clamp(60px, 8vw, 150px);
+}
+
+.page-header .site-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.page-header .site-logo img {
+  width: clamp(190px, 18vw, 250px);
+  height: auto;
+  display: block;
+}
+
+.page-header .main-nav {
+  justify-content: flex-end;
+  gap: clamp(18px, 1.7vw, 30px);
+  min-width: 0;
+}
+
+.page-header .main-nav a {
+  white-space: nowrap;
+  font-size: clamp(0.72rem, 0.82vw, 0.82rem);
+}
+
 /* ==========================================
    TABLET
    ========================================== */
+@media (max-width: 1180px) {
+  .page-header .header-inner {
+    width: min(1180px, 94%);
+    column-gap: clamp(32px, 5vw, 70px);
+  }
+
+  .page-header .site-logo img {
+    width: clamp(165px, 17vw, 210px);
+  }
+
+  .page-header .main-nav {
+    gap: clamp(12px, 1.4vw, 20px);
+  }
+
+  .page-header .main-nav a {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .beliefs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
 @media (max-width: 1000px) {
     .header-inner,
     .hero-content,
@@ -2955,6 +3406,34 @@ body.page-fade-out {
     margin-bottom: 20px;
   }
 
+    .story-narrative-section {
+    padding: 70px 0;
+  }
+
+  .story-chapter,
+  .story-chapter-reverse {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    margin-bottom: 70px;
+  }
+
+  .story-chapter-reverse .story-image,
+  .story-chapter-reverse .story-text {
+    order: initial;
+  }
+
+  .story-image img {
+    height: 320px;
+  }
+
+  .story-text {
+    text-align: center;
+  }
+
+  .story-scripture {
+    padding: 50px 20px;
+    margin-bottom: 70px;
+  }
 
 }
 
@@ -3334,6 +3813,18 @@ body.page-fade-out {
   .landing-hero.show-still .landing-hero-image {
     opacity: 1;
   }
+
+  .beliefs-section {
+    width: min(100% - 36px, 980px);
+  }
+
+  .beliefs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .belief-card {
+    min-height: auto;
+  }
 }
 
 @media (max-width: 480px) {
@@ -3356,6 +3847,23 @@ body.page-fade-out {
 
   .about-hero-content h1 {
     font-size: 2.65rem;
+  }
+
+  .beliefs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-intro h2,
+  .story-ending h2 {
+    font-size: 2.1rem;
+  }
+
+  .story-text h3 {
+    font-size: 2rem;
+  }
+
+  .story-image img {
+    height: 260px;
   }
 }
 
@@ -3454,3 +3962,71 @@ body.page-fade-out {
   }
 }
 
+@media (max-width: 768px) {
+  .mvv-section {
+    width: min(100% - 36px, 980px);
+    gap: 60px;
+  }
+
+  .mvv-card {
+    padding: 60px 26px 42px;
+  }
+
+  .strategy-item {
+    padding: 16px 18px;
+  }
+
+  .strategy-item:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .story-narrative-section {
+    padding: 70px 0;
+  }
+
+  .story-chapter,
+  .story-chapter-reverse,
+  .local-story {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    margin-bottom: 72px;
+  }
+
+  .story-chapter-reverse .story-image,
+  .story-chapter-reverse .story-text {
+    order: initial;
+  }
+
+  .story-text {
+    text-align: center;
+  }
+
+  .story-image img,
+  .local-story .story-image img {
+    height: 320px;
+  }
+
+  .story-scripture {
+    padding: 46px 20px;
+    margin-bottom: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-intro h2,
+  .story-ending h2 {
+    font-size: 2rem;
+  }
+
+  .story-text h3,
+  .local-story .story-text h3 {
+    font-size: 1.9rem;
+  }
+
+  .story-image img,
+  .local-story .story-image img {
+    height: 260px;
+  }
+}

@@ -241,3 +241,25 @@ if (landingHero && heroVideos.length > 0) {
 window.addEventListener("pageshow", () => {
   document.body.classList.remove("page-fade-out");
 });
+
+// Scroll reveal animation for story sections/
+
+const revealElements = document.querySelectorAll(".reveal-on-scroll");
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+      }
+    });
+  },
+  {
+    threshold: 0.18,
+  }
+);
+
+revealElements.forEach((element) => {
+  revealObserver.observe(element);
+})
+
