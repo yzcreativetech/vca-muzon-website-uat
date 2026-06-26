@@ -3883,13 +3883,29 @@ body.page-fade-out {
    HOME HERO MOBILE IMPROVEMENT
 ================================ */
 
+@media (max-width: 1024px) {
+  .home-hero.landing-style-hero .hero-video-container {
+    display: none;
+    opacity: 0;
+  }
+
+  .home-hero.landing-style-hero.show-video .landing-hero-image,
+  .home-hero.landing-style-hero .landing-hero-image {
+    object-fit: contain;
+    object-position: center;
+    opacity: 1;
+    background: #001b57;
+  }
+}
+
 @media (max-width: 768px) {
   .home-hero.landing-style-hero {
     min-height: 100svh;
   }
 
-  .landing-hero-image {
-    object-position: 62% center;
+  .home-hero.landing-style-hero .landing-hero-image {
+    object-fit: contain;
+    object-position: center;
   }
 
   .landing-overlay {
