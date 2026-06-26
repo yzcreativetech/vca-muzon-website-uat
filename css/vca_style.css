@@ -3423,7 +3423,13 @@ body.page-fade-out {
   }
 
   .story-image img {
-    height: 320px;
+    height: auto;
+    object-fit: contain;
+    transform: none;
+  }
+
+  .story-chapter:hover .story-image img {
+    transform: none;
   }
 
   .story-text {
@@ -3863,7 +3869,13 @@ body.page-fade-out {
   }
 
   .story-image img {
-    height: 260px;
+    height: auto;
+    object-fit: contain;
+    transform: none;
+  }
+
+  .story-chapter:hover .story-image img {
+    transform: none;
   }
 }
 
@@ -4005,7 +4017,13 @@ body.page-fade-out {
 
   .story-image img,
   .local-story .story-image img {
-    height: 320px;
+    height: auto;
+    object-fit: contain;
+    transform: none;
+  }
+
+  .story-chapter:hover .story-image img {
+    transform: none;
   }
 
   .story-scripture {
@@ -4027,6 +4045,12 @@ body.page-fade-out {
 
   .story-image img,
   .local-story .story-image img {
-    height: 260px;
+    height: auto;
+    object-fit: contain;
+    transform: none;
+  }
+
+  .story-chapter:hover .story-image img {
+    transform: none;
   }
 }
