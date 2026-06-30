@@ -328,8 +328,10 @@ function showHeroVideo(index) {
   currentVideo.classList.add("active-video");
 
   if (currentVideo.tagName === "VIDEO") {
+    currentVideo.muted = true;
+    currentVideo.playsInline = true;
     currentVideo.currentTime = 0;
-    currentVideo.play();
+    currentVideo.play().catch(() => {});
   }
 }
 
