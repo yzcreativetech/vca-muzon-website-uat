@@ -2929,11 +2929,39 @@ body {
 
 /* DOWNLOADS */
 
-.download-grid,
-.link-grid {
+.download-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 22px;
+}
+
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+@media (min-width: 1181px) {
+  .link-grid {
+    grid-template-columns: repeat(24, minmax(0, 1fr));
+  }
+
+  .link-card {
+    grid-column: span 6;
+  }
+
+  .link-card:nth-child(5) {
+    grid-column: 4 / span 6;
+  }
+
+  .link-card:nth-child(6) {
+    grid-column: 10 / span 6;
+  }
+
+  .link-card:nth-child(7) {
+    grid-column: 16 / span 6;
+  }
 }
 
 .download-card,
@@ -2943,6 +2971,44 @@ body {
   padding: 26px;
   box-shadow: 0 12px 28px rgba(35, 59, 130, 0.10);
   transition: 0.3s ease;
+}
+
+.link-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(35, 59, 130, 0.08);
+  min-height: 250px;
+  padding: 28px;
+}
+
+.link-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: linear-gradient(90deg, #003c96, #d4af37);
+  opacity: 0.9;
+}
+
+.link-card .link-icon {
+  margin-bottom: 20px;
+}
+
+.link-card h3 {
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.25;
+}
+
+.link-card p {
+  color: #42506f;
+  margin-bottom: 18px;
+}
+
+.link-card a {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  line-height: 1.25;
 }
 
 /* ICON COLORS */
@@ -2970,6 +3036,11 @@ body {
 .purple {
   background: #f0e8ff;
   color: #6b35b8;
+}
+
+.orange {
+  background: #fff1df;
+  color: #b85f00;
 }
 
 .resource-plan-card,
@@ -3012,6 +3083,76 @@ body {
   }
 }
 
+
+/* ==========================================
+   Disabled / Coming Soon Cards
+========================================== */
+
+.resource-plan-card.disabled-card,
+.download-card.disabled-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(35, 59, 130, 0.08);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.resource-plan-card.disabled-card:hover,
+.download-card.disabled-card:hover {
+  transform: none;
+  box-shadow: 0 12px 28px rgba(35, 59, 130, 0.10);
+}
+
+/* Coming Soon Badge */
+
+.resource-plan-card.disabled-card::before,
+.download-card.disabled-card::before {
+  content: "Coming Soon";
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #233b82;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 7px 10px;
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(35, 59, 130, 0.18);
+  z-index: 3;
+}
+
+.resource-plan-card.disabled-card h3,
+.download-card.disabled-card h3,
+.resource-plan-card.disabled-card p,
+.download-card.disabled-card p {
+  color: #4a5570;
+}
+
+.resource-plan-card.disabled-card .resource-icon,
+.download-card.disabled-card .pdf-icon {
+  opacity: 0.72;
+  filter: saturate(0.75);
+}
+
+.disabled-link {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: auto;
+  color: #233b82;
+  background: #eef3ff;
+  border: 1px solid rgba(35, 59, 130, 0.12);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1;
+}
 
 /* ================================
    CONTACT
