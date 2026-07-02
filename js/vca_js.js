@@ -252,9 +252,9 @@ if (pastorVideoPoster && pastorYoutubeVideo && pastorIframe) {
   pastorVideoPoster.addEventListener("click", () => {
     const videoSrc = pastorIframe.dataset.videoSrc;
 
-    pastorIframe.src = videoSrc;
     pastorVideoPoster.hidden = true;
     pastorYoutubeVideo.hidden = false;
+    pastorIframe.src = videoSrc;
   });
 }
 
