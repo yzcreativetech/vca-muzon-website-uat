@@ -27,16 +27,15 @@
   position: fixed;
   right: 25px;
   bottom: 25px;
-  background: rgba(184, 139, 61, 0.95);
-  color: white;
+  background: #8a5f12;
+  color: #ffffff;
   padding: 14px 18px;
   border-radius: 14px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
   z-index: 99999;
   pointer-events: none;
   text-align: center;
-  backdrop-filter: blur(5px);
-  animation: badgeFloat 4s ease-in-out infinite;  
+  animation: badgeFloat 4s ease-in-out infinite;
 }
 
 .badge-title{
@@ -1042,13 +1041,13 @@ body {
 }
 
 .live-badge {
-  display: inline-block;
-  background: red;
-  color: white;
+  background: #8b0000;
+  color: #ffffff;
   border-radius: 999px;
   padding: 5px 11px;
   font-size: 0.65rem;
   font-weight: 900;
+  letter-spacing: 0.5px;
 }
 
 .youth-time {
@@ -1060,7 +1059,10 @@ body {
 
 .youth-logo {
   width: 30px;
-  height: 30px;
+  height: auto;
+  aspect-ratio: 57 / 66;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 
@@ -1235,9 +1237,12 @@ body {
   width: 180px;
 }
 
-.site-footer h4 {
+.footer-heading {
+  color: #ffffff;
   text-transform: uppercase;
   margin-bottom: 16px;
+  font-weight: 900;
+  letter-spacing: 1px;
 }
 
 .site-footer a,
