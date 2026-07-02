@@ -5418,6 +5418,194 @@ button:focus-visible,
   flex: 1;
 }
 
+/* ================================
+   INDEX LOWER PAGE POLISH
+================================ */
+
+.feature-section,
+.new-here,
+.site-footer {
+  position: relative;
+  z-index: 2;
+}
+
+.uat-watermark {
+  color: rgba(184, 139, 61, 0.032);
+}
+
+@media (min-width: 769px) {
+  .feature-section {
+    margin: 44px auto 40px;
+    gap: 24px;
+  }
+
+  .feature-card {
+    min-height: 300px;
+    border-radius: 12px;
+    padding: 26px 24px;
+  }
+
+  .new-here.about-cta {
+    margin-bottom: 42px;
+    border-radius: 12px;
+    padding: 34px 50px;
+  }
+
+  .new-here.about-cta .outline-btn {
+    flex: 0 0 auto;
+    min-width: 188px;
+  }
+
+  .site-footer {
+    padding: 44px 0 20px;
+  }
+
+  .footer-grid {
+    align-items: flex-start;
+    width: min(100% - 72px, 1100px);
+    grid-template-columns: 180px 160px 250px 320px;
+    justify-content: space-between;
+    gap: 36px;
+    padding-bottom: 30px;
+  }
+
+  .footer-grid > div:not(:first-child) {
+    padding-top: 8px;
+  }
+
+  .footer-logo {
+    width: 165px;
+    height: auto;
+  }
+
+  .footer-social {
+    margin-top: 14px;
+    gap: 12px;
+  }
+
+  .footer-social a {
+    width: 38px;
+    height: 38px;
+  }
+
+  .site-footer a,
+  .site-footer p {
+    margin-bottom: 9px;
+    line-height: 1.45;
+  }
+
+  .site-footer h4,
+  .site-footer .footer-heading {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+
+  .footer-grid > div:nth-child(3) p,
+  .footer-grid > div:nth-child(4) p {
+    margin-bottom: 14px;
+  }
+
+  .footer-btn {
+    margin-top: 4px;
+  }
+
+  .copyright {
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-section,
+  .new-here {
+    z-index: 2;
+  }
+
+  .new-here.about-cta {
+    margin-bottom: 48px;
+  }
+
+  .site-footer {
+    padding: 36px 0 96px;
+  }
+
+  .footer-grid {
+    width: min(100% - 48px, 680px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 32px;
+    padding-bottom: 28px;
+  }
+
+  .footer-grid > div:first-child {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .footer-logo {
+    width: 150px;
+    height: auto;
+  }
+
+  .footer-social {
+    margin-top: 0;
+    gap: 10px;
+  }
+
+  .footer-social a {
+    width: 38px;
+    height: 38px;
+  }
+
+  .site-footer a,
+  .site-footer p {
+    margin-bottom: 7px;
+    line-height: 1.35;
+  }
+
+  .footer-btn {
+    width: fit-content;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-footer {
+    padding-top: 32px;
+  }
+
+  .footer-grid {
+    width: min(100% - 40px, 430px);
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-grid > div:first-child {
+    display: block;
+  }
+
+  .footer-logo {
+    width: 132px;
+  }
+
+  .footer-social {
+    margin-top: 14px;
+  }
+
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+  }
+
+  .footer-btn {
+    width: 100%;
+  }
+}
+
 .ministry-card img,
 .event-image,
 .preaching-thumb img,
