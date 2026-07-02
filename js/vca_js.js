@@ -240,6 +240,24 @@ pageLinks.forEach((link) => {
   }
 })
 
+/* ================================
+   PASTOR WELCOME VIDEO
+================================ */
+
+const pastorVideoPoster = document.querySelector(".pastor-video-poster");
+const pastorYoutubeVideo = document.querySelector(".pastor-youtube-video");
+const pastorIframe = document.querySelector(".pastor-youtube-video iframe");
+
+if (pastorVideoPoster && pastorYoutubeVideo && pastorIframe) {
+  pastorVideoPoster.addEventListener("click", () => {
+    const videoSrc = pastorIframe.dataset.videoSrc;
+
+    pastorIframe.src = videoSrc;
+    pastorVideoPoster.hidden = true;
+    pastorYoutubeVideo.hidden = false;
+  });
+}
+
 /* DAILY VERSE */
 
 const dailyVerses = [
