@@ -204,7 +204,7 @@ body {
       rgba(0, 20, 65, 0.48) 68%,
       rgba(0, 20, 65, 0.16) 100%
     ),
-    url("../assets/home/church_image_home.jpg");
+    url("../assets/home/church_image_home.webp");
 
   background-size: cover;
   background-position: 75% center;
@@ -368,6 +368,7 @@ body {
   max-width: 620px;
   margin-left: 12%;
   padding-top: 155px;
+  padding-bottom: clamp(56px, 8vh, 96px);
 
   display: flex;
   flex-direction: column;
@@ -428,7 +429,7 @@ body {
 }
 
 .landing-content .primary-btn {
-  margin-top: 110px;
+  margin-top: clamp(26px, 4vh, 42px);
   width: fit-content;
   min-width: 130px;
   min-height: 58px;

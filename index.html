@@ -10,6 +10,11 @@
     <title>Home | Test Version</title>
 
     <link rel="stylesheet" href="css/vca_style.css" />
+    <link
+        rel="preload"
+        as="image"
+        href="assets/index/VCA_CHURCH.webp"
+        type="image/webp">
 </head>
 
 <body>
@@ -53,6 +58,8 @@
                 id="churchImage"
                 width="1920"
                 height="1080"
+                fetchpriority="high"
+                decoding="async"
             >
 
             <div class="hero-video-container">
@@ -139,6 +146,7 @@
                         class="announcement-image"
                         width="1200"
                         height="675"
+                        loading="lazy"
                     >
                     <div class="announcement-content">
                         <h3>Digital Christianism</h3>
@@ -163,6 +171,7 @@
                         class="announcement-image"
                         width="1200"
                         height="675"
+                        loading="lazy"
                     >
                     <div class="announcement-content">
                         <h3>Midweek Service</h3>
@@ -184,6 +193,7 @@
                         class="announcement-image"
                         width="1200"
                         height="675"
+                        loading="lazy"
                     >
                     <div class="announcement-content">
                         <h3>See you this Sunday!</h3>
@@ -202,6 +212,7 @@
                         class="announcement-image"
                         width="1200"
                         height="675"
+                        loading="lazy"
                     >
                     <div class="announcement-content">
 
@@ -222,6 +233,7 @@
                         class="announcement-image"
                         width="1200"
                         height="675"
+                        loading="lazy"
                     >
                     <div class="announcement-content">
                         <a
@@ -278,7 +290,7 @@
             </div>
 
             <div class="about-image">
-                <img src="assets/home/home_image_01.jpg" alt="VCA Muzon Service">
+                <img src="assets/home/home_image_01.webp" alt="VCA Muzon Service" loading="lazy">
             </div>
         </section>
 
@@ -339,7 +351,7 @@
     <section class="feature-section">
 
         <div class="feature-card">
-            <img src="assets/home/church-ministry-home.jpg" alt="VCA ministries">
+            <img src="assets/home/church-ministry-home.webp" alt="VCA ministries" loading="lazy">
             <div class="feature-content">
             <h3>Our Ministries</h3>
             <p>There’s a place for everyone.</p>
@@ -348,7 +360,7 @@
         </div>
 
         <div class="feature-card">
-            <img src="assets/home/church-preaching-home.jpg" alt="VCA preaching">
+            <img src="assets/home/church-preaching-home.webp" alt="VCA preaching" loading="lazy">
             <div class="feature-content">
             <h3>Preachings</h3>
             <p>Stay inspired and grow in your faith.</p>
@@ -357,7 +369,7 @@
         </div>
 
         <div class="feature-card">
-            <img src="assets/home/church-events-home.jpg" alt="VCA events">
+            <img src="assets/home/church-events-home.webp" alt="VCA events" loading="lazy">
             <div class="feature-content">
             <h3>Upcoming Events</h3>
             <p>Don’t miss what’s happening.</p>
@@ -387,6 +399,7 @@
                     class="footer-logo"
                     width="195"
                     height="195"
+                    loading="lazy"
                 >
 
                 <div class="footer-social">
@@ -394,21 +407,21 @@
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Facebook">
-                            <img src="assets/contact/fb_logo.png" alt="Facebook">
+                            <img src="assets/contact/fb_logo.png" alt="Facebook" loading="lazy">
                     </a>
 
                     <a href="https://www.instagram.com/vcamuzonsjdm"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Instagram">
-                            <img src="assets/contact/ig_logo.png" alt="Instagram">
+                            <img src="assets/contact/ig_logo.png" alt="Instagram" loading="lazy">
                     </a>
 
                     <a href="https://www.youtube.com/@vcamuzonsjdm"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="YouTube">
-                            <img src="assets/contact/youtube_logo.png" alt="YouTube">
+                            <img src="assets/contact/youtube_logo.png" alt="YouTube" loading="lazy">
                     </a>
                 </div>
             </div>
