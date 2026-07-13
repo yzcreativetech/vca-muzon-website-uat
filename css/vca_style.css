@@ -517,7 +517,15 @@ body {
   transform: translateX(-50%);
   transition:
     color 0.3s ease,
-    opacity 0.3s ease;
+    opacity 0.3s ease,
+    visibility 0s linear;
+}
+
+.hero-scroll-indicator.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition-delay: 0s, 0s, 0.3s;
 }
 
 .hero-scroll-indicator:hover,

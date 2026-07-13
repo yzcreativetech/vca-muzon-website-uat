@@ -320,6 +320,23 @@ if (verseText && verseRef) {
 
 const landingHero = document.querySelector(".landing-hero, .landing-style-hero");
 const heroVideos = document.querySelectorAll(".hero-video");
+const heroScrollIndicator = document.querySelector(".hero-scroll-indicator");
+
+if (heroScrollIndicator) {
+  let isHeroScrollIndicatorHidden;
+
+  function updateHeroScrollIndicator() {
+    const shouldHide = window.scrollY > 75;
+
+    if (shouldHide === isHeroScrollIndicatorHidden) return;
+
+    heroScrollIndicator.classList.toggle("is-hidden", shouldHide);
+    isHeroScrollIndicatorHidden = shouldHide;
+  }
+
+  updateHeroScrollIndicator();
+  window.addEventListener("scroll", updateHeroScrollIndicator, { passive: true });
+}
 
 let heroVideoIndex = 0;
 let heroIdleTimer;
