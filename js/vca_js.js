@@ -388,7 +388,7 @@ function startHeroVideos() {
     }
 
     showHeroVideo(heroVideoIndex);
-  }, 8000);
+  }, 4000);
 }
 
 function resetHeroIdleTimer() {
@@ -408,7 +408,7 @@ if (landingHero && heroVideos.length > 0) {
 
   heroIdleTimer = setTimeout(() => {
     startHeroVideos();
-  }, 5000);
+  }, 1000);
 
   landingHero.addEventListener("mousemove", resetHeroIdleTimer);
   landingHero.addEventListener("touchstart", resetHeroIdleTimer);
