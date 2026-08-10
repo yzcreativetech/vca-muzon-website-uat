@@ -1653,7 +1653,7 @@ body {
   width: min(1100px, 88%);
   margin: 50px auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 22px;
 }
 
@@ -1697,6 +1697,10 @@ body {
   object-position: 52% 50%;
 }
 
+.feature-card:nth-child(4) img {
+  object-position: 52% 50%;
+}
+
 .feature-card:hover img {
   transform: scale(1.05);
 }
@@ -1716,6 +1720,7 @@ body {
   position: relative;
   z-index: 2;
   color: white;
+  width: 100%;
 }
 
 .feature-card h3 {
@@ -1739,6 +1744,24 @@ body {
   border-radius: 999px;
   text-decoration: none;
   font-weight: 900;
+}
+
+@media (min-width: 1101px) {
+  .feature-card h3 {
+    min-height: 2.4em;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .feature-card p {
+    min-height: 2.8em;
+  }
+
+  .feature-card a {
+    padding-inline: 16px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
 }
 
 
@@ -3100,7 +3123,7 @@ body {
 
 .preachings-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px;
 }
 
@@ -3296,7 +3319,7 @@ body {
       rgba(0, 20, 65, 0.75) 45%,
       rgba(0, 20, 65, 0.30) 100%
     ),
-    url("../assets/resources/resources-hero.jpg");
+    url("../assets/resources/resources-hero.webp");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -5135,11 +5158,6 @@ body.page-fade-out {
     padding: 24px;
   }
 
-  .feature-card:nth-child(3) {
-    grid-column: 1 / -1;
-    aspect-ratio: 21 / 9;
-  }
-
   .feature-card h3 {
     font-size: clamp(1.45rem, 3vw, 1.8rem);
   }
@@ -5534,7 +5552,7 @@ button:focus-visible,
 }
 
 .feature-card a {
-  padding: 12px 24px;
+  padding: 12px 16px;
 }
 
 .footer-logo {

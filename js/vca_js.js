@@ -340,21 +340,6 @@ const heroScrollIndicator = document.querySelector(
   ".hero-scroll-indicator"
 );
 
-/*
-  Display duration for each video, in milliseconds.
-
-  Video 1 = 3 seconds
-  Video 2 = 3 seconds
-  Video 3 = 3 seconds
-  Video 4 = 3 seconds
-*/
-const HERO_VIDEO_DURATIONS = [
-  3000,
-  3000,
-  3000,
-  3000
-];
-
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 );
@@ -407,26 +392,14 @@ function getHeroVideoDuration(index) {
     return 3000;
   }
 
-  /*
-    Optional HTML override:
+  if (Number.isFinite(video.duration) && video.duration > 0) {
+    const remainingDuration = video.duration - video.currentTime;
 
-    <video
-      class="hero-video"
-      data-clip-duration="8000"
-    >
-  */
-  const customDuration = Number(
-    video.dataset.clipDuration
-  );
-
-  if (
-    Number.isFinite(customDuration) &&
-    customDuration > 0
-  ) {
-    return customDuration;
+    return Math.max(remainingDuration * 1000, 100);
   }
 
-  return HERO_VIDEO_DURATIONS[index] || 3000;
+  // Used only if the browser cannot read the video's metadata.
+  return 3000;
 }
 
 
