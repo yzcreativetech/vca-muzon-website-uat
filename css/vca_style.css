@@ -1748,7 +1748,7 @@ body {
   .feature-card h3 {
     min-height: 2.4em;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
   }
 
   .feature-card p {
