@@ -2,6 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta
+      http-equiv="Content-Security-Policy"
+      content="
+          default-src 'self';
+          script-src 'self';
+          style-src 'self';
+          img-src 'self';
+          font-src 'none';
+          media-src 'self';
+          frame-src https://www.youtube.com https://www.google.com;
+          connect-src 'none';
+          object-src 'none';
+          base-uri 'none';
+          form-action 'none';
+      "
+  >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resources | Test Version</title>
   <link rel="stylesheet" href="css/vca_style.css" />
