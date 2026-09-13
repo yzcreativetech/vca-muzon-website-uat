@@ -1291,7 +1291,7 @@ body {
   max-height: 100%;
   margin: 0;
   padding: clamp(44px, 6vw, 70px);
-  overflow-y: auto;
+  overflow-y: none;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.45) transparent;
   color: white;
