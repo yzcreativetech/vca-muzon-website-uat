@@ -9,7 +9,10 @@ Purpose:
 - Testing before production
 
 Production website:
-https://ynzpog.github.io/vca-muzon-website/
+https://vcamuzon.org/
+
+This is the canonical public production identity. This repository is the separate
+UAT environment used to review changes before production promotion.
 
 ## Development workflow
 

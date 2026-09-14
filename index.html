@@ -24,7 +24,7 @@
     content="Victory Churches of Asia Muzon is a Christian church in San Jose del Monte, Bulacan committed to reaching, teaching, and mobilizing people for God's glory."
     />
     <link rel="icon" type="image/png" href="assets/index/VCA_LOGO_flame.png">
-    <title>Home | Test Version</title>
+    <title>VCA Muzon | Victory Churches of Asia Muzon</title>
     <link rel="canonical" href="https://vcamuzon.org/">
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="VCA Muzon" />
@@ -43,25 +43,49 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Church",
-      "@id": "https://vcamuzon.org/#church",
-      "name": "Victory Churches of Asia Muzon",
-      "alternateName": "VCA Muzon",
-      "url": "https://vcamuzon.org/",
-      "logo": "https://vcamuzon.org/assets/index/VCA_LOGO.png",
-      "image": "https://vcamuzon.org/assets/shared/vca-muzon-social-share.webp",
-      "telephone": "+63443070126",
-      "email": "vcamediamuzon@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "MUZON Central Terminal 2F.",
-        "addressLocality": "San Jose del Monte",
-        "addressRegion": "Bulacan",
-        "addressCountry": "PH"
-      },
-      "sameAs": [
-        "https://www.instagram.com/vcamuzonsjdm",
-        "https://www.youtube.com/@vcamuzonsjdm"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://vcamuzon.org/#organization",
+          "name": "Victory Churches of Asia Muzon",
+          "alternateName": "VCA Muzon",
+          "url": "https://vcamuzon.org/",
+          "logo": "https://vcamuzon.org/assets/index/VCA_LOGO.png",
+          "image": "https://vcamuzon.org/assets/shared/vca-muzon-social-share.webp",
+          "telephone": "+63443070126",
+          "email": "vcamediamuzon@gmail.com",
+          "sameAs": [
+            "https://www.instagram.com/vcamuzonsjdm",
+            "https://www.youtube.com/@vcamuzonsjdm"
+          ],
+          "description": "Victory Churches of Asia Muzon is a Christian church and local congregation in San Jose del Monte, Bulacan, Philippines, affiliated with Victory Churches of Asia.",
+          "location": {
+            "@id": "https://vcamuzon.org/#church"
+          }
+        },
+        {
+          "@type": "Church",
+          "@id": "https://vcamuzon.org/#church",
+          "name": "Victory Churches of Asia Muzon",
+          "url": "https://vcamuzon.org/",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "MUZON Central Terminal 2F.",
+            "addressLocality": "San Jose del Monte",
+            "addressRegion": "Bulacan",
+            "addressCountry": "PH"
+          },
+          "telephone": "+63443070126"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://vcamuzon.org/#website",
+          "url": "https://vcamuzon.org/",
+          "name": "VCA Muzon",
+          "publisher": {
+            "@id": "https://vcamuzon.org/#organization"
+          }
+        }
       ]
     }
     </script>
