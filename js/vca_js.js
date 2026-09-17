@@ -300,7 +300,28 @@ const dailyVerses = [
   {
     text: "Let everything that has breath praise the Lord.",
     reference: "Psalm 150:6"
+  },
+  {
+    text: "Do not fear, for I am with you; do not be afraid, for I am your God. I will strengthen you and help you; I will uphold you with my righteous right hand.",
+    reference: "Isaiah 41:10"
+  },
+  {
+    text: "Jesus Christ is the same yesterday and today and forever.",
+    reference: "Hebrews 13:8"
+  },
+  {
+    text: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.",
+    reference: "Jeremiah 29:11"
+  },
+  {
+    text: "Rejoice in the Lord always. I will say it again: Rejoice!",
+    reference: "Philippians 4:4"
+  },
+  {
+    text: "Come to me, all you who are weary and burdened, and I will give you rest.",
+    reference: "Matthew 11:28"
   }
+
 ];
 
 const verseText = document.getElementById("dailyVerseText");
