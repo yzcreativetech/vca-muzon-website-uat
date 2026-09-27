@@ -85,115 +85,61 @@
         </section>
 
         <!--UPCOMING EVENTS-->
-        <section class="events-section animate-up animate-delay-1">
-            <h2 class="center-heading">Upcoming Events</h2>
-
+        <section class="events-section" aria-labelledby="upcoming-events-title">
+            <h2 class="center-heading" id="upcoming-events-title">Upcoming Events</h2>
             <div class="events-grid">
-                <div class="event-card">
+                <!-- Keep events chronological; the first (next upcoming) event uses event-card--featured. -->
+                <article class="event-card event-card--featured" aria-labelledby="esther_rising-title">
                     <div class="event-image">
-                        <img src="assets/events/women_fellowship.webp" alt="Women's Fellowship">
-
-                        <div class="event-date">
-                            <span>Sep</span>
-                            <strong>26</strong>
-                            <small>Saturday</small>
-                        </div>
+                        <img src="assets/events/esther_rising.webp" alt="Esther Rising — National Womens Conference 2026 flyer" width="1306" height="692" loading="lazy" decoding="async">
                     </div>
-
                     <div class="event-content">
-                        <h3>Women's Fellowship</h3>
-                        <p>
-                            Ladies, this one’s for you!<br>
-                            Come and join us for a beautiful morning of fellowship, encouragement, worship, and sisterhood<br>
-                            See you, ladies!<br>
-                        </p>
-                    </div>
-
-                    <div class="event-details">
-                        <span>🕒 9:00 AM - 12:00PM</span>
-                        <span>📍 VCA Muzon Sanctuary</span>
-                    </div>
-                </div>
-
-                <div class="event-card">
-                    <div class="event-image">
-                        <img src="assets/events/ya_interfellowship.webp" alt="YA / SA Interfellowship">
-
-                        <div class="event-date">
-                            <span>Sep</span>
-                            <strong>27</strong>
-                            <small>Sunday</small>
-                        </div>
-                    </div>
-
-                    <div class="event-content">
-                        <h3>YA / SA Interfellowship</h3>
-                        <p>
-                            SA Muzon is coming together with IGNITE NEM (North East Marilao) x YA Marilao for another night of fun, connection, and meaningful fellowship!<br>
-                            Different fellowships, one family in Christ.<br>
-                            Come, bring your friends, and let’s make more memories together!<br>
-                            See you there!
-                        </p>
-                    </div>
-
-                    <div class="event-details">
-                        <span>🕒 6:30PM</span>
-                        <span>📍 VCA Muzon Sanctuary</span>
-                    </div>
-                </div>
-
-                <div class="event-card">
-                    <div class="event-image">
-                        <img src="assets/events/esther_rising.webp" alt="National Womens Conference 2026: Esther Rising">
-
-                        <div class="event-date">
-                            <span>Oct</span>
-                            <strong>1-3</strong>
-                            <small>Thu-Sat</small>
-                        </div>
-                    </div>
-
-                    <div class="event-content">
-                        <h3>National Womens Conference 2026: Esther Rising</h3>
+                        <p class="event-date"><span><time datetime="2026-10-01">Oct 1</time>–<time datetime="2026-10-03">3</time></span> <span>Thu–Sat</span></p>
+                        <h3 id="esther_rising-title">National Womens Conference 2026: Esther Rising</h3>
                         <p>From Hidden to Being Known</p>
+                        <ul class="event-details">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>10:00AM - 5:00PM</span></li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M4 5h16v5a2 2 0 0 0 0 4v5H4v-5a2 2 0 0 0 0-4Z"/><path d="M15 5v14"/></svg><span>₱850</span></li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2"/></svg><span>VCA Starmall</span></li>
+                        </ul>
                     </div>
+                </article>
 
-                    <div class="event-details">
-                        <span>🕒 10:00AM - 5:00PM</span>
-                        <span>🎟️ ₱850</span>
-                        <span>📍 VCA Starmall</span>
-                    </div>
-                </div>
-
-                <div class="event-card">
+                <article class="event-card" aria-labelledby="men-of-victory-title">
                     <div class="event-image">
-                        <img src="assets/events/kingdom_gen.webp" alt="National Young Adult Retreat: KINGDOM GENERATION">
-
-                        <div class="event-date">
-                            <span>Nov</span>
-                            <strong>6-7</strong>
-                            <small>Fri-Sat</small>
-                        </div>
+                        <img src="assets/events/men-of-victory.webp" alt="Men of Victory joint fellowship flyer" width="1414" height="2000" loading="lazy" decoding="async">
                     </div>
-
                     <div class="event-content">
-                        <h3>National Young Adult Retreat: KINGDOM GENERATION</h3>
-                        <p>
-                            For every Young Adult figuring out life, purpose, faith, and everything in between, Kingdom Gen is for you.
-                            Come away with clarity on who you are, where you belong, what you carry, and what you can contribute.
-                        </p>
+                        <p class="event-date"><time datetime="2026-10-17">Oct 17</time> <span>Sat</span></p>
+                        <h3 id="men-of-victory-title">Men of Victory</h3>
+                        <p>Joint Fellowship</p>
+                        <ul class="event-details">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>6:00PM</span></li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2"/></svg><span>VCA Sapang Palay</span></li>
+                        </ul>
+
                     </div>
+                </article>
 
-                    <div class="event-details">
-                        <span>🎟️ ₱2,700 | 21 years old & above</span>
-                        <span>📍 Caribbean Waves Water Park Resort</span>
+                <article class="event-card" aria-labelledby="kingdom_gen-title">
+                    <div class="event-image">
+                        <img src="assets/events/kingdom_gen.webp" alt="Kingdom Generation retreat flyer" width="1312" height="722" loading="lazy" decoding="async">
                     </div>
-                </div>
-
-
+                    <div class="event-content">
+                        <p class="event-date"><span>Nov 6–7</span> <span>Fri–Sat</span></p>
+                        <h3 id="kingdom_gen-title">National Young Adult Retreat: KINGDOM GENERATION</h3>
+                        <p>For every Young Adult figuring out life, purpose, faith, and everything in between, Kingdom Gen is for you.
+                            Come away with clarity on who you are, where you belong, what you carry, and what you can contribute.</p>
+                        <ul class="event-details">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M4 5h16v5a2 2 0 0 0 0 4v5H4v-5a2 2 0 0 0 0-4Z"/><path d="M15 5v14"/></svg><span>₱2,700 | 21 years old &amp; above</span></li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2"/></svg><span>Caribbean Waves Water Park Resort</span></li>
+                        </ul>
+                        <p class="event-note">Register via your YA church coordinators.</p>
+                    </div>
+                </article>
             </div>
         </section>
-        
+
         <!--CTA-->
         <section class="new-here about-cta animate-up animate-delay-2">
             <div>

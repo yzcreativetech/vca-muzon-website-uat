@@ -1195,11 +1195,24 @@ body {
   line-height: 1.55;
 }
 
+.announcement-carousel,
+.carousel-footer {
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+/* Override legacy breakpoint heights so artwork stays 16:9 at every width. */
+.announcement-section .announcement-carousel,
+.announcement-section .announcement-slide {
+  min-height: 0;
+}
+
 .announcement-carousel {
   position: relative;
   overflow: hidden;
   border-radius: 26px;
-  min-height: 520px;
+  aspect-ratio: 16 / 9;
   box-shadow:
     0 32px 70px rgba(0, 27, 87, 0.22),
     0 16px 28px rgba(15, 23, 42, 0.12);
@@ -1225,11 +1238,10 @@ body {
   inset: 0;
   display: flex;
   align-items: center;
-  min-height: 520px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: scale(1.03);
+  transform: scale(1);
   transition:
     opacity 0.8s ease,
     transform 1s ease,
@@ -1248,7 +1260,7 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   animation: carouselZoom 8s linear forwards;
   animation-play-state: paused;
 }
@@ -1259,11 +1271,19 @@ body {
 
 @keyframes carouselZoom {
   from {
-    transform: scale(1);
+    /* Cover fractional edge gaps in the near-16:9 source graphics. */
+    transform: scale(1.001);
   }
 
   to {
-    transform: scale(1.08);
+    transform: scale(1.02);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announcement-image {
+    animation: none;
+    transform: scale(1.001);
   }
 }
 
@@ -1983,7 +2003,6 @@ body {
 .belief-card,
 .ministry-card,
 .preaching-thumb,
-.event-card,
 .daily-verse-card,
 .resource-plan-card,
 .download-card,
@@ -1998,7 +2017,6 @@ body {
 }
 
 .ministry-card,
-.event-card,
 .resource-plan-card,
 .download-card,
 .link-card,
@@ -2010,7 +2028,6 @@ body {
 }
 
 .ministry-card:hover,
-.event-card:hover,
 .resource-plan-card:hover,
 .download-card:hover,
 .link-card:hover,
@@ -3253,65 +3270,6 @@ body {
   line-height: 1.7;
 }
 
-/* EVENT DETAILS */
-
-.event-date {
-  position: absolute;
-  left: 18px;
-  bottom: -26px;
-  width: 70px;
-  height: 82px;
-  background: #001b57;
-  color: var(--white);
-  border-radius: 8px;
-  display: grid;
-  place-items: center;
-  padding: 8px 0;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
-}
-
-.event-date span,
-.event-date small {
-  font-size: 0.75rem;
-  font-weight: 900;
-}
-
-.event-date strong {
-  font-size: 1.8rem;
-  line-height: 1;
-}
-
-.event-content {
-  padding: 42px 22px 24px;
-  flex-grow: 1;
-}
-
-.event-content h3 {
-  color: #06143b;
-  font-size: 1.15rem;
-  margin-bottom: 14px;
-}
-
-.event-content p {
-  line-height: 1.6;
-  font-size: 0.95rem;
-  margin-bottom: 22px;
-}
-
-.event-details {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 0.9rem;
-  padding: 0 22px 24px;
-}
-
-.event-details span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
 /* ================================
    RESOURCES PAGE
 ================================ */
@@ -4353,7 +4311,6 @@ body.page-fade-out {
   .pastor-message,
   .featured-preaching,
   .recent-preachings,
-  .events-section,
   .daily-verse-section,
   .resource-section,
   .contact-card-section,
@@ -4594,7 +4551,6 @@ body.page-fade-out {
   .pastor-message,
   .featured-preaching,
   .recent-preachings,
-  .events-section,
   .daily-verse-section,
   .resource-section,
   .contact-card-section,
@@ -4749,9 +4705,6 @@ body.page-fade-out {
     min-height: 420px;
   }
 
-  .event-details {
-    flex-direction: column;
-  }  
 
   .resources-hero {
     min-height: 420px;
@@ -5569,7 +5522,6 @@ button:focus-visible,
 }
 
 .ministry-card,
-.event-card,
 .resource-plan-card,
 .download-card,
 .link-card,
@@ -5580,7 +5532,6 @@ button:focus-visible,
 }
 
 .ministry-card,
-.event-card,
 .resource-plan-card,
 .download-card,
 .link-card,
@@ -5591,7 +5542,6 @@ button:focus-visible,
 }
 
 .ministry-content,
-.event-content,
 .download-card p,
 .link-card p,
 .contact-card p:last-child,
@@ -5789,7 +5739,6 @@ button:focus-visible,
 }
 
 .ministry-card img,
-.event-image,
 .preaching-thumb img,
 .fellowship-card img,
 .about-welcome-image img,
@@ -5814,7 +5763,6 @@ button:focus-visible,
   .pastor-message,
   .featured-preaching,
   .recent-preachings,
-  .events-section,
   .daily-verse-section,
   .resource-section,
   .contact-card-section,
@@ -5855,7 +5803,6 @@ button:focus-visible,
   }
 
   .ministry-card,
-  .event-card,
   .resource-plan-card,
   .download-card,
   .link-card,
@@ -5915,7 +5862,6 @@ button:focus-visible,
   .ministries-section,
   .featured-preaching,
   .recent-preachings,
-  .events-section,
   .daily-verse-section,
   .resource-section,
   .contact-card-section,
@@ -5936,8 +5882,6 @@ button:focus-visible,
     width: 38px;
     height: 38px;
   }
-
-  .event-content,
   .ministry-content,
   .fellowship-content,
   .download-card,
@@ -6217,7 +6161,7 @@ button:focus-visible,
 }
 
 /* =====================================
-   EVENTS SECTION - RESPONSIVE LAYOUT
+   EVENTS - FEATURED + TWO SUPPORTING EVENTS
 ===================================== */
 
 .events-section {
@@ -6241,50 +6185,50 @@ button:focus-visible,
   display: flex;
   flex-direction: column;
   min-width: 0;
-  height: 100%;
   border: 1px solid rgba(0, 27, 87, 0.08);
   border-radius: 16px;
   overflow: hidden;
   background: var(--white);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 12px 28px rgba(35, 59, 130, 0.10);
+}
+
+.event-card--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  border-top: 4px solid var(--gold);
 }
 
 .event-image {
   position: relative;
   flex: 0 0 auto;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  overflow: visible;
+  aspect-ratio: 16 / 10;
+  max-height: 320px;
   background: #f4f1e8;
 }
 
 .event-image img {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
-  transition: none;
 }
 
-.event-card:hover .event-image img {
-  transform: none;
-}
-
-.event-date {
-  left: 20px;
-  bottom: -28px;
-  width: 72px;
-  height: 84px;
+.event-card--featured .event-image {
+  aspect-ratio: auto;
+  max-height: none;
 }
 
 .event-content {
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 10px;
-  padding: 48px 22px 20px;
+  min-width: 0;
+  gap: 12px;
+  padding: clamp(22px, 2.5vw, 32px);
 }
 
 .event-content h3,
@@ -6294,27 +6238,70 @@ button:focus-visible,
 }
 
 .event-content h3 {
-  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  color: var(--vca-navy-dark);
+  font-size: clamp(1.2rem, 1.7vw, 1.45rem);
   line-height: 1.25;
+}
+
+.event-card--featured h3 {
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
 }
 
 .event-content p {
   color: #475569;
-  font-size: 0.94rem;
+  font-size: 0.95rem;
   line-height: 1.65;
 }
 
-.event-details {
-  gap: 9px;
-  margin-top: auto;
-  padding: 0 22px 24px;
-  color: #334155;
-  line-height: 1.4;
+.event-content .event-date {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  color: var(--vca-navy);
+  font-size: 0.85rem;
+  font-weight: 900;
 }
 
-.event-details span {
+.event-date > :first-child {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--vca-navy);
+  color: var(--white);
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: auto 0 0;
+  padding: 8px 0 0;
+  list-style: none;
+  color: var(--text-body);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.event-details li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
   min-width: 0;
   overflow-wrap: anywhere;
+}
+
+.event-details svg {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  color: var(--vca-blue);
+}
+
+.event-content .event-note {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 12px;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 1000px) {
@@ -6322,20 +6309,19 @@ button:focus-visible,
     width: min(100% - 40px, 860px);
   }
 
-  .events-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .event-card--featured {
+    display: flex;
   }
 
-  .event-image {
-    aspect-ratio: 16 / 10;
+  .event-card--featured .event-image {
+    aspect-ratio: 16 / 9;
   }
 }
 
 @media (max-width: 600px) {
   .events-section {
     width: calc(100% - 32px);
-    margin-top: 48px;
-    margin-bottom: 64px;
+    margin: 48px auto 64px;
   }
 
   .events-section .center-heading {
@@ -6352,34 +6338,12 @@ button:focus-visible,
     border-radius: 14px;
   }
 
-  .event-image {
-    aspect-ratio: 16 / 10;
-  }
-
-  .event-date {
-    left: 18px;
-    bottom: -24px;
-    width: 68px;
-    height: 78px;
-  }
-
   .event-content {
-    gap: 8px;
-    padding: 42px 18px 18px;
+    padding: 20px;
   }
 
-  .event-content h3 {
-    font-size: 1.18rem;
-  }
-
-  .event-content p {
-    font-size: 0.92rem;
-    line-height: 1.6;
-  }
-
-  .event-details {
-    padding: 0 18px 22px;
-    font-size: 0.88rem;
+  .event-card--featured h3 {
+    font-size: 1.35rem;
   }
 }
 
@@ -6388,13 +6352,7 @@ button:focus-visible,
     width: calc(100% - 24px);
   }
 
-  .event-image {
-    aspect-ratio: 4 / 3;
-  }
-
-  .event-content,
-  .event-details {
-    padding-right: 16px;
-    padding-left: 16px;
+  .event-content {
+    padding: 18px 16px;
   }
 }
