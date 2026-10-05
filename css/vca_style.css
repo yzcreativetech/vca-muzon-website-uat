@@ -6161,11 +6161,11 @@ button:focus-visible,
 }
 
 /* =====================================
-   EVENTS - FEATURED + TWO SUPPORTING EVENTS
+   EVENTS - CHRONOLOGICAL GRID
 ===================================== */
 
 .events-section {
-  width: min(100% - 48px, 1180px);
+  width: min(100% - 48px, 1100px);
   margin: clamp(52px, 7vw, 84px) auto clamp(64px, 8vw, 96px);
 }
 
@@ -6192,11 +6192,26 @@ button:focus-visible,
   box-shadow: 0 12px 28px rgba(35, 59, 130, 0.10);
 }
 
-.event-card--featured {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  border-top: 4px solid var(--gold);
+@media (hover: hover) and (pointer: fine) {
+  .event-card {
+    transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+  }
+
+  .event-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(35, 59, 130, 0.14);
+    border-color: rgba(35, 59, 130, 0.16);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-card {
+    transition: none;
+  }
+
+  .event-card:hover {
+    transform: none;
+  }
 }
 
 .event-image {
@@ -6215,11 +6230,6 @@ button:focus-visible,
   height: 100%;
   object-fit: contain;
   object-position: center;
-}
-
-.event-card--featured .event-image {
-  aspect-ratio: auto;
-  max-height: none;
 }
 
 .event-content {
@@ -6241,10 +6251,6 @@ button:focus-visible,
   color: var(--vca-navy-dark);
   font-size: clamp(1.2rem, 1.7vw, 1.45rem);
   line-height: 1.25;
-}
-
-.event-card--featured h3 {
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
 }
 
 .event-content p {
@@ -6304,18 +6310,19 @@ button:focus-visible,
   font-size: 0.9rem;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .events-section {
-    width: min(100% - 40px, 860px);
+    width: calc(100% - 40px);
   }
 
-  .event-card--featured {
-    display: flex;
+}
+
+@media (max-width: 700px) {
+  .events-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
   }
 
-  .event-card--featured .event-image {
-    aspect-ratio: 16 / 9;
-  }
 }
 
 @media (max-width: 600px) {
@@ -6329,11 +6336,6 @@ button:focus-visible,
     font-size: clamp(1.8rem, 8vw, 2.15rem);
   }
 
-  .events-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 24px;
-  }
-
   .event-card {
     border-radius: 14px;
   }
@@ -6342,9 +6344,6 @@ button:focus-visible,
     padding: 20px;
   }
 
-  .event-card--featured h3 {
-    font-size: 1.35rem;
-  }
 }
 
 @media (max-width: 380px) {
