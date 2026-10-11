@@ -6192,6 +6192,27 @@ button:focus-visible,
   box-shadow: 0 12px 28px rgba(35, 59, 130, 0.10);
 }
 
+/* Remove the wide class to return this event to the standard card layout. */
+.event-card--wide {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 901px) {
+  .event-card--wide {
+    display: grid;
+    grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+  }
+
+  .event-card--wide .event-image {
+    aspect-ratio: auto;
+    max-height: none;
+  }
+
+  .event-card--wide .event-details {
+    margin-top: 0;
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .event-card {
     transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
@@ -6318,6 +6339,10 @@ button:focus-visible,
 }
 
 @media (max-width: 700px) {
+  .event-card--wide {
+    grid-column: auto;
+  }
+
   .events-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 24px;
