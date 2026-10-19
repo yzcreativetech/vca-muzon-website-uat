@@ -1,0 +1,313 @@
+{
+  "notice": "Synthetic TEST ONLY data. Identifiers are placeholders, not verified YouTube content. Thresholds are test values, not approved policy.",
+  "cases": [
+    {
+      "name": "active live",
+      "kind": "live",
+      "payload": {
+        "status": "LIVE",
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z",
+        "livestream": {
+          "videoId": "TEST_ONLY01",
+          "title": "TEST ONLY - synthetic stream",
+          "thumbnailUrl": "https://example.invalid/test-only.jpg",
+          "watchUrl": "https://www.youtube.com/watch?v=TEST_ONLY01"
+        }
+      },
+      "valid": true
+    },
+    {
+      "name": "offline",
+      "kind": "offline",
+      "payload": {
+        "status": "OFFLINE",
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z"
+      },
+      "valid": true
+    },
+    {
+      "name": "stale previous live",
+      "kind": "stale",
+      "payload": {
+        "status": "STALE",
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z",
+        "previousStatus": "LIVE",
+        "lastKnownLivestream": {
+          "videoId": "TEST_ONLY01",
+          "title": "TEST ONLY - synthetic stream",
+          "thumbnailUrl": "https://example.invalid/test-only.jpg",
+          "watchUrl": "https://www.youtube.com/watch?v=TEST_ONLY01"
+        },
+        "reason": "AGE_EXCEEDED",
+        "freshness": {
+          "evaluatedAt": "2026-10-19T00:02:00Z",
+          "ageSeconds": 120,
+          "policy": {
+            "maxAgeSeconds": 60
+          }
+        }
+      },
+      "valid": true
+    },
+    {
+      "name": "archive collection",
+      "kind": "archiveCollection",
+      "payload": {
+        "entries": [
+          {
+            "videoId": "TEST_ONLY01",
+            "title": "TEST ONLY - synthetic stream",
+            "thumbnailUrl": "https://example.invalid/test-only.jpg",
+            "watchUrl": "https://www.youtube.com/watch?v=TEST_ONLY01",
+            "publishedAt": "2026-10-19T00:00:00Z"
+          }
+        ],
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z"
+      },
+      "valid": true
+    },
+    {
+      "name": "archive entry",
+      "kind": "archiveEntry",
+      "payload": {
+        "videoId": "TEST_ONLY01",
+        "title": "TEST ONLY - synthetic stream",
+        "thumbnailUrl": "https://example.invalid/test-only.jpg",
+        "watchUrl": "https://www.youtube.com/watch?v=TEST_ONLY01",
+        "publishedAt": "2026-10-19T00:00:00Z"
+      },
+      "valid": true
+    },
+    {
+      "name": "empty archive",
+      "kind": "archiveCollection",
+      "payload": {
+        "entries": [],
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z"
+      },
+      "valid": true
+    },
+    {
+      "name": "missing title",
+      "kind": "live",
+      "payload": {
+        "status": "LIVE",
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z",
+        "livestream": {
+          "videoId": "TEST_ONLY01",
+          "thumbnailUrl": "https://example.invalid/test-only.jpg",
+          "watchUrl": "https://www.youtube.com/watch?v=TEST_ONLY01"
+        }
+      },
+      "valid": false,
+      "error": "title"
+    },
+    {
+      "name": "unsupported status",
+      "kind": "state",
+      "payload": {
+        "status": "UNKNOWN",
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z"
+      },
+      "valid": false,
+      "error": "status"
+    },
+    {
+      "name": "bad video id",
+      "kind": "live",
+      "payload": {
+        "status": "LIVE",
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z",
+        "livestream": {
+          "videoId": "bad",
+          "title": "TEST ONLY - synthetic stream",
+          "thumbnailUrl": "https://example.invalid/test-only.jpg",
+          "watchUrl": "https://www.youtube.com/watch?v=TEST_ONLY01"
+        }
+      },
+      "valid": false,
+      "error": "videoId"
+    },
+    {
+      "name": "invalid calendar date",
+      "kind": "offline",
+      "payload": {
+        "status": "OFFLINE",
+        "lastSuccessfulCheckAt": "2026-02-30T00:00:00Z"
+      },
+      "valid": false,
+      "error": "lastSuccessfulCheckAt"
+    },
+    {
+      "name": "invalid archive entry",
+      "kind": "archiveCollection",
+      "payload": {
+        "entries": [
+          {
+            "videoId": "TEST_ONLY01",
+            "title": "TEST ONLY - synthetic stream",
+            "thumbnailUrl": "https://example.invalid/test-only.jpg",
+            "watchUrl": "https://www.youtube.com/watch?v=TEST_ONLY01",
+            "publishedAt": null
+          }
+        ],
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z"
+      },
+      "valid": false,
+      "error": "publishedAt"
+    },
+    {
+      "name": "stale cannot validate live",
+      "kind": "live",
+      "payload": {
+        "status": "STALE",
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z",
+        "previousStatus": "LIVE",
+        "lastKnownLivestream": {
+          "videoId": "TEST_ONLY01",
+          "title": "TEST ONLY - synthetic stream",
+          "thumbnailUrl": "https://example.invalid/test-only.jpg",
+          "watchUrl": "https://www.youtube.com/watch?v=TEST_ONLY01"
+        },
+        "reason": "AGE_EXCEEDED",
+        "freshness": {
+          "evaluatedAt": "2026-10-19T00:02:00Z",
+          "ageSeconds": 120,
+          "policy": {
+            "maxAgeSeconds": 60
+          }
+        }
+      },
+      "valid": false,
+      "error": "status"
+    },
+    {
+      "name": "negative age",
+      "kind": "stale",
+      "payload": {
+        "status": "STALE",
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z",
+        "previousStatus": "LIVE",
+        "lastKnownLivestream": {
+          "videoId": "TEST_ONLY01",
+          "title": "TEST ONLY - synthetic stream",
+          "thumbnailUrl": "https://example.invalid/test-only.jpg",
+          "watchUrl": "https://www.youtube.com/watch?v=TEST_ONLY01"
+        },
+        "reason": "AGE_EXCEEDED",
+        "freshness": {
+          "evaluatedAt": "2026-10-19T00:02:00Z",
+          "ageSeconds": -1,
+          "policy": {
+            "maxAgeSeconds": 60
+          }
+        }
+      },
+      "valid": false,
+      "error": "ageSeconds"
+    },
+    {
+      "name": "wrong watch host",
+      "kind": "live",
+      "payload": {
+        "status": "LIVE",
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z",
+        "livestream": {
+          "videoId": "TEST_ONLY01",
+          "title": "TEST ONLY - synthetic stream",
+          "thumbnailUrl": "https://example.invalid/test-only.jpg",
+          "watchUrl": "https://evil.invalid/watch?v=TEST_ONLY01"
+        }
+      },
+      "valid": false,
+      "error": "watchUrl"
+    },
+    {
+      "name": "mismatched id",
+      "kind": "live",
+      "payload": {
+        "status": "LIVE",
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z",
+        "livestream": {
+          "videoId": "TEST_ONLY01",
+          "title": "TEST ONLY - synthetic stream",
+          "thumbnailUrl": "https://example.invalid/test-only.jpg",
+          "watchUrl": "https://www.youtube.com/watch?v=TEST_ONLY02"
+        }
+      },
+      "valid": false,
+      "error": "watchUrl"
+    },
+    {
+      "name": "optional metadata",
+      "kind": "offline",
+      "payload": {
+        "status": "OFFLINE",
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z",
+        "nextScheduledLivestream": {
+          "videoId": "TEST_ONLY01",
+          "title": "TEST ONLY - synthetic stream",
+          "thumbnailUrl": "https://example.invalid/test-only.jpg",
+          "watchUrl": "https://www.youtube.com/watch?v=TEST_ONLY01",
+          "scheduledStartAt": "2026-10-19T00:00:00Z"
+        },
+        "latestArchiveEntry": {
+          "videoId": "TEST_ONLY01",
+          "title": "TEST ONLY - synthetic stream",
+          "thumbnailUrl": "https://example.invalid/test-only.jpg",
+          "watchUrl": "https://www.youtube.com/watch?v=TEST_ONLY01",
+          "publishedAt": "2026-10-19T00:00:00Z",
+          "speaker": "TEST ONLY",
+          "durationSeconds": 0
+        }
+      },
+      "valid": true
+    },
+    {
+      "name": "non UTC rejected",
+      "kind": "offline",
+      "payload": {
+        "status": "OFFLINE",
+        "lastSuccessfulCheckAt": "2026-10-19T08:00:00+08:00"
+      },
+      "valid": false,
+      "error": "lastSuccessfulCheckAt"
+    },
+    {
+      "name": "zero threshold",
+      "kind": "stale",
+      "payload": {
+        "status": "STALE",
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z",
+        "previousStatus": "LIVE",
+        "lastKnownLivestream": {
+          "videoId": "TEST_ONLY01",
+          "title": "TEST ONLY - synthetic stream",
+          "thumbnailUrl": "https://example.invalid/test-only.jpg",
+          "watchUrl": "https://www.youtube.com/watch?v=TEST_ONLY01"
+        },
+        "reason": "AGE_EXCEEDED",
+        "freshness": {
+          "evaluatedAt": "2026-10-19T00:02:00Z",
+          "ageSeconds": 120,
+          "policy": {
+            "maxAgeSeconds": 0
+          }
+        }
+      },
+      "valid": false,
+      "error": "maxAgeSeconds"
+    },
+    {
+      "name": "unexpected field",
+      "kind": "offline",
+      "payload": {
+        "status": "OFFLINE",
+        "lastSuccessfulCheckAt": "2026-10-19T00:00:00Z",
+        "unexpected": true
+      },
+      "valid": false,
+      "error": "unexpected"
+    }
+  ]
+}
