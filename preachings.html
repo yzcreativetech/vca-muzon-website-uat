@@ -8,11 +8,11 @@
           default-src 'self';
           script-src 'self';
           style-src 'self';
-          img-src 'self';
+          img-src 'self' https://i.ytimg.com;
           font-src 'none';
           media-src 'self';
-          frame-src https://www.youtube.com https://www.google.com;
-          connect-src 'none';
+          frame-src https://www.youtube.com https://www.google.com https://www.youtube-nocookie.com;
+          connect-src 'self';
           object-src 'none';
           base-uri 'none';
           form-action 'none';
@@ -38,8 +38,9 @@
   <meta name="twitter:image" content="https://vcamuzon.org/assets/shared/vca-muzon-social-share.webp" />
   <meta name="twitter:image:alt" content="VCA Muzon" />
   <link rel="stylesheet" href="css/vca_style.css" />
+  <link rel="stylesheet" href="css/preachings.css" />
 </head>
-<body>
+<body class="preachings-page">
 
     <!-- UAT Watermark -->
     <div class="uat-watermark">
@@ -82,21 +83,36 @@
             </div>
         </section>
 
-        <!-- FEATURED PREACHING -->
-        <section class="featured-preaching animate-up animate-delay-1">
+        <p id="preachings-data-notice" class="preaching-data-notice" role="status">Messages below are manually maintained. <a href="https://www.youtube.com/@vcamuzonsjdm" target="_blank" rel="noopener noreferrer">Visit our YouTube channel</a> for the latest updates.</p>
+
+        <!-- Livestream availability is unknown until a future integration verifies it.
+             LIVE/OFFLINE/STALE must reflect the data contract and freshness policy. -->
+        <section id="sunday-livestream" class="featured-preaching" aria-labelledby="livestream-heading">
+            <div class="section-title-left">
+                <h2 id="livestream-heading">Sunday Worship Live</h2>
+                <p>Sunday at <time datetime="10:30">10:30 AM</time> (Philippine Time)</p>
+            </div>
+            <p id="livestream-status" role="status" aria-live="polite">Livestream status is not available yet.</p>
+            <div id="livestream-player" class="preaching-live-content" aria-label="Sunday worship livestream player" hidden></div>
+            <p id="livestream-fallback">No livestream is available on this page at the moment. Please explore the preachings below.</p>
+        </section>
+
+        <!-- LATEST PREACHING: existing manually maintained content -->
+        <section id="latest-preaching" class="featured-preaching animate-up animate-delay-1" aria-labelledby="latest-preaching-heading">
             <div class="section-title-left">
                 <p>Featured</p>
-                <h2>Last Sunday's Preaching</h2>
+                <h2 id="latest-preaching-heading">Latest Preaching</h2>
             </div>
 
-            <div class="featured-preaching-layout">
+            <div id="latest-preaching-content" class="featured-preaching-layout">
                 <div class="video-wrapper">
                     <a
                     href="https://www.youtube.com/live/hwIoKTxWxS4?si=NUISC1JTpovUuVuy"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="video-link">
-                        <img src="assets/preachings/101826.webp"
+                    id="latest-preaching-watch"
+                    class="video-link" aria-label="Watch Sermon: JESUS IS STILL AND ALWAYS THE ANSWER - WEEK 5">
+                        <img id="latest-preaching-thumbnail" loading="lazy" src="assets/preachings/101826.webp"
                         alt="JESUS IS STILL AND ALWAYS THE ANSWER — WEEK 5">
                         <div class="play-button">
                             ▶
@@ -105,12 +121,12 @@
                 </div>
 
                 <div class="featured-preaching-content">
-                    <h3>JESUS IS STILL AND ALWAYS THE ANSWER — WEEK 5</h3>
+                    <h3 id="latest-preaching-title">JESUS IS STILL AND ALWAYS THE ANSWER — WEEK 5</h3>
                     <p class="preaching-meta">
-                        PTR. Boaz Crescini<br>
-                        <time datetime="2026-10-18">Oct 18, 2026</time>
+                        <span id="latest-preaching-speaker">PTR. Boaz Crescini</span><br>
+                        <time id="latest-preaching-date" datetime="2026-10-18">Oct 18, 2026</time>
                     </p>            
-                    <p>
+                    <p id="latest-preaching-description">
                         No matter what season of life we face, Jesus remains faithful and unchanging. Join us as we discover why Jesus is, still, and always the answer!<br>
                         <i>“He is the same yesterday and today and forever.”</i><br>— Hebrews 13:8
                     </p>       
@@ -118,86 +134,102 @@
             </div>            
         </section>
 
-        <!-- RECENT PREACHINGS -->
-        <section class="recent-preachings animate-up animate-delay-2">
+        <!-- PREACHING ARCHIVE: retain existing cards until validated data is available. -->
+        <section id="preaching-archive" class="recent-preachings animate-up animate-delay-2" aria-labelledby="preaching-archive-heading">
             <div class="section-title-left">
                 <p>Recent</p>
-                <h2>Preachings</h2>
+                <h2 id="preaching-archive-heading">Preaching Archive</h2>
             </div>
 
-            <div class="preachings-grid">
+            <!-- Only show the applicable state; the existing archive is visible by default. -->
+            <p id="preaching-archive-empty" role="status" hidden>No sermons are available yet.</p>
+            <p id="preaching-archive-loading" role="status" hidden>Loading the sermon archive...</p>
+            <p id="preaching-archive-error" role="status" hidden>The sermon archive is temporarily unavailable. Please try again later.</p>
 
-                <div class="preaching-card">
+            <div id="preaching-archive-list" class="preachings-grid">
+
+                <article class="preaching-card">
                     <a
                         href="https://www.youtube.com/live/p6qvqfOR__8?si=mHu0o-ChJupWe4IJ"
                         target="_blank"
-                        rel="noopener noreferrer">
+                        rel="noopener noreferrer" class="preaching-watch">
                         <div class="preaching-thumb">
-                            <img
+                            <img loading="lazy"
                                 src="assets/preachings/101126.webp"
                                 alt="JESUS IS STILL AND ALWAYS THE ANSWER — WEEK 4">
                             <span>1:45:14</span>
                         </div>
 
-                        <h3>JESUS IS STILL AND ALWAYS THE ANSWER — WEEK 4</h3>
-                        <p>PTR. Boaz Crescini<br><time datetime="2026-10-11">Oct 11, 2026</time></p>
+                        <h3 class="preaching-title">JESUS IS STILL AND ALWAYS THE ANSWER — WEEK 4</h3>
+                        <p><span class="preaching-speaker">PTR. Boaz Crescini</span><br><time class="preaching-date" datetime="2026-10-11">Oct 11, 2026</time></p>
+                        <p class="preaching-description">Description not provided.</p>
+                        <p>Watch Sermon</p>
                     </a>
-                </div>
+                </article>
 
-                <div class="preaching-card">
+                <article class="preaching-card">
                     <a
                         href="https://www.youtube.com/live/c_okddqPEhk?si=aW9LUi4zXe3tG0Cv"
                         target="_blank"
-                        rel="noopener noreferrer">
+                        rel="noopener noreferrer" class="preaching-watch">
                         <div class="preaching-thumb">
-                            <img
+                            <img loading="lazy"
                                 src="assets/preachings/100426.webp"
                                 alt="THE WAR AGAINST YOUR YES">
                             <span>1:46:12</span>
                         </div>
 
-                        <h3>THE WAR AGAINST YOUR YES</h3>
-                        <p>PTR. Sharrah Gervais<br><time datetime="2026-10-04">Oct 4, 2026</time></p>
+                        <h3 class="preaching-title">THE WAR AGAINST YOUR YES</h3>
+                        <p><span class="preaching-speaker">PTR. Sharrah Gervais</span><br><time class="preaching-date" datetime="2026-10-04">Oct 4, 2026</time></p>
+                        <p class="preaching-description">Description not provided.</p>
+                        <p>Watch Sermon</p>
                     </a>
-                </div>
+                </article>
 
-                <div class="preaching-card">
+                <article class="preaching-card">
                     <a
                         href="https://www.youtube.com/live/c_okddqPEhk?si=aW9LUi4zXe3tG0Cv"
                         target="_blank"
-                        rel="noopener noreferrer">
+                        rel="noopener noreferrer" class="preaching-watch">
                         <div class="preaching-thumb">
-                            <img
+                            <img loading="lazy"
                                 src="assets/preachings/092726.webp"
                                 alt="JESUS IS STILL AND ALWAYS THE ANSWER — WEEK 3">
                             <span>2:05:15</span>
                         </div>
 
-                        <h3>JESUS IS STILL AND ALWAYS THE ANSWER — WEEK 3</h3>
-                        <p>PTR. Boaz Crescini<br><time datetime="2026-09-27">September 27, 2026</time></p>
+                        <h3 class="preaching-title">JESUS IS STILL AND ALWAYS THE ANSWER — WEEK 3</h3>
+                        <p><span class="preaching-speaker">PTR. Boaz Crescini</span><br><time class="preaching-date" datetime="2026-09-27">September 27, 2026</time></p>
+                        <p class="preaching-description">Description not provided.</p>
+                        <p>Watch Sermon</p>
                     </a>
-                </div>
+                </article>
 
-                <div class="preaching-card">
+                <article class="preaching-card">
                     <a
                         href="https://www.youtube.com/live/oPWAAHXfo0g?si=t0yDLNNh-eYFAyc_"
                         target="_blank"
-                        rel="noopener noreferrer">
+                        rel="noopener noreferrer" class="preaching-watch">
                         <div class="preaching-thumb">
-                            <img
+                            <img loading="lazy"
                                 src="assets/preachings/092026.webp"
                                 alt="JESUS IS STILL AND ALWAYS THE ANSWER — WEEK 2: MENTAL HEALTH & EXHAUSTION">
                             <span>1:33:00</span>
                         </div>
 
-                        <h3>JESUS IS STILL AND ALWAYS THE ANSWER — WEEK 2: MENTAL HEALTH & EXHAUSTION</h3>
-                        <p>PTR. Boaz Crescini<br><time datetime="2026-09-20">September 20, 2026</time></p>
+                        <h3 class="preaching-title">JESUS IS STILL AND ALWAYS THE ANSWER — WEEK 2: MENTAL HEALTH & EXHAUSTION</h3>
+                        <p><span class="preaching-speaker">PTR. Boaz Crescini</span><br><time class="preaching-date" datetime="2026-09-20">September 20, 2026</time></p>
+                        <p class="preaching-description">Description not provided.</p>
+                        <p>Watch Sermon</p>
                     </a>
-                </div>  
+                </article>
 
 
 
             </div>
+
+            <p id="preaching-archive-count" class="preaching-archive-count" role="status"></p>
+            <button id="preaching-load-more" class="preaching-action" type="button" aria-controls="preaching-archive-list" hidden>Load More Preachings</button>
 
             <div class="view-more-wrap">
                 <a 
@@ -275,5 +307,6 @@
         </p>        
     </footer>
     <script src="js/vca_js.js"></script>
+    <script type="module" src="js/preachings-ui.mjs"></script>
 </body>
 </html>

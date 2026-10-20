@@ -1,0 +1,130 @@
+﻿/* Page-scoped additions: shared styles and homepage behavior remain unchanged. */
+.preachings-page .preaching-data-notice,
+.preachings-page #sunday-livestream,
+.preachings-page #latest-preaching,
+.preachings-page #preaching-archive {
+  width: min(1100px, 90%);
+  margin-inline: auto;
+}
+.preachings-page .preaching-data-notice {
+  margin-block: 32px;
+  padding: 18px 22px;
+  border-left: 4px solid var(--vca-blue);
+  background: var(--surface-soft);
+  line-height: 1.65;
+}
+.preachings-page .preaching-preview-notice { border: 3px solid var(--vca-blue); font-weight: 800; }
+.preachings-page #sunday-livestream {
+  background: var(--surface-soft);
+  border: 1px solid var(--vca-light-blue);
+  border-radius: 16px;
+  padding: clamp(20px, 4vw, 36px);
+}
+.preachings-page #sunday-livestream .section-title-left > p {
+  color: var(--vca-blue);
+}
+.preachings-page #livestream-status {
+  display: inline-block;
+  margin-block: 12px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: var(--vca-navy);
+  background: #e2edfa;
+  font-weight: 700;
+}
+.preachings-page #livestream-status[data-state="LIVE"] { background: #a91523; color: white; }
+.preachings-page #livestream-fallback { line-height: 1.7; }
+.preachings-page .preachings-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; }
+.preachings-page .preaching-card {
+  min-width: 0;
+  background: white;
+  border: 1px solid #cbd9eb;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(35, 59, 130, .08);
+}
+.preachings-page .preaching-card .preaching-media > a { display: inline-block; margin: 0 18px 14px; }
+.preachings-page .preaching-details { padding: 20px; min-width: 0; }
+.preachings-page .preaching-details h3 { color: var(--vca-navy); line-height: 1.35; margin-bottom: 12px; }
+.preachings-page .preaching-details p { margin-top: 10px; line-height: 1.65; }
+.preachings-page .preaching-details time { color: #475569; font-size: .9rem; }
+.preachings-page .preaching-description { white-space: pre-line; max-height: 12em; overflow: auto; }
+.preachings-page .preaching-player {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  min-width: 0;
+  background: var(--vca-navy-dark);
+  overflow: hidden;
+  border-radius: 10px;
+}
+.preachings-page .preaching-poster {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--vca-navy-dark);
+  cursor: pointer;
+  color: white;
+  font: inherit;
+}
+.preachings-page .preaching-poster img { display: block; width: 100%; height: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.preachings-page .preaching-play-label {
+  position: absolute;
+  inset: auto 12px 12px;
+  background: var(--vca-blue);
+  color: white;
+  padding: 10px 14px;
+  border: 1px solid #98c2ec;
+  border-radius: 8px;
+  font-weight: 700;
+  text-align: center;
+}
+.preachings-page .preaching-poster:disabled { cursor: default; }
+.preachings-page .preaching-player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.preachings-page .preaching-media { min-width: 0; }
+.preachings-page .preaching-playback-message { font-size: .9rem; line-height: 1.6; padding: 8px 0; }
+.preachings-page .preaching-card .preaching-playback-message { padding-inline: 18px; }
+.preachings-page .preaching-action {
+  display: block;
+  margin: 24px auto;
+  padding: 14px 24px;
+  border: 2px solid var(--vca-blue);
+  border-radius: 8px;
+  background: var(--vca-blue);
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 44px;
+}
+.preachings-page .preaching-archive-count { margin-top: 20px; text-align: center; }
+.preachings-page main a { color: var(--vca-blue); text-underline-offset: 3px; }
+.preachings-page main .view-more-btn:hover { color: white; }
+.preachings-page main :is(h3, p, a, button) { overflow-wrap: anywhere; }
+.preachings-page main :is(button, a, iframe):focus-visible { outline: 3px solid #1264bc; outline-offset: 4px; }
+.preachings-page .preaching-poster:focus-visible { outline-offset: -4px; }
+@media (max-width: 1024px) {
+  .preachings-page .preachings-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .preachings-page .preachings-grid { grid-template-columns: minmax(0, 1fr); }
+  .preachings-page .featured-preaching-layout { grid-template-columns: minmax(0, 1fr); }
+  .preachings-page .preaching-details { text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .preachings-page { scroll-behavior: auto; }
+  .preachings-page main *, .preachings-page main *::before, .preachings-page main *::after { animation: none !important; transition: none !important; }
+}
+/* Reduced motion must also reveal elements whose shared animation starts hidden. */
+@media (prefers-reduced-motion: reduce) {
+  html:has(.preachings-page) { scroll-behavior: auto; }
+  .preachings-page main .animate-up { opacity: 1; transform: none; }
+}
+/* Existing shared footer uses fixed columns at this width; keep this page within
+   the viewport without changing its markup or other pages. */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .preachings-page .footer-grid { grid-template-columns: .8fr .8fr 1.1fr 1.4fr; gap: 24px; }
+  .preachings-page .footer-grid > div { min-width: 0; overflow-wrap: anywhere; }
+}
