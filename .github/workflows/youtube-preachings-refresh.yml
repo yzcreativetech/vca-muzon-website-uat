@@ -1,0 +1,77 @@
+{
+  "name": "YouTube preachings candidate checks",
+  "on": {
+    "workflow_dispatch": {
+      "inputs": {
+        "collect_candidate": {
+          "description": "Run approved disposable API candidate (never publishes)",
+          "type": "boolean",
+          "default": false,
+          "required": true
+        }
+      }
+    }
+  },
+  "permissions": {
+    "contents": "read"
+  },
+  "concurrency": {
+    "group": "youtube-preachings-uat",
+    "cancel-in-progress": false
+  },
+  "defaults": {
+    "run": {
+      "shell": "bash",
+      "working-directory": "."
+    }
+  },
+  "jobs": {
+    "candidate": {
+      "if": "github.repository == 'yzcreativetech/vca-muzon-website-uat' && github.ref == 'refs/heads/feature/youtube-live-archive'",
+      "runs-on": "ubuntu-24.04",
+      "timeout-minutes": 15,
+      "steps": [
+        {
+          "name": "Checkout reviewed UAT branch",
+          "uses": "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "with": {
+            "persist-credentials": false
+          }
+        },
+        {
+          "name": "Set up Node 24 LTS",
+          "uses": "actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020",
+          "with": {
+            "node-version": "24"
+          }
+        },
+        {
+          "name": "Offline contract, collector, frontend and automation tests",
+          "run": "node --test data-contracts/validate.test.mjs collector/test/collector.test.mjs js/test/preachings.test.mjs automation/candidate.test.mjs"
+        },
+        {
+          "name": "Generate and verify disposable candidate",
+          "if": "${{ inputs.collect_candidate }}",
+          "env": {
+            "YOUTUBE_API_KEY": "${{ secrets.YOUTUBE_API_KEY }}",
+            "YOUTUBE_CHANNEL_ID": "${{ vars.YOUTUBE_CHANNEL_ID }}",
+            "YOUTUBE_MAX_AGE_SECONDS": "${{ vars.YOUTUBE_MAX_AGE_SECONDS }}",
+            "YOUTUBE_BACKFILL_LIMIT": "${{ vars.YOUTUBE_BACKFILL_LIMIT }}",
+            "YOUTUBE_CANDIDATE_APPROVED": "${{ vars.YOUTUBE_CANDIDATE_APPROVED }}",
+            "YOUTUBE_ARCHIVE_VIDEO_IDS": "${{ vars.YOUTUBE_ARCHIVE_VIDEO_IDS }}",
+            "YOUTUBE_OUTPUT_DIR": "${{ runner.temp }}/youtube-candidate-${{ github.run_id }}-${{ github.run_attempt }}"
+          },
+          "run": "umask 077\nnode automation/candidate.mjs preflight\nnode collector/cli.mjs\nnode automation/candidate.mjs verify"
+        },
+        {
+          "name": "Report outcome",
+          "if": "${{ always() }}",
+          "env": {
+            "RESULT": "${{ job.status }}"
+          },
+          "run": "printf \"Candidate job: %s\\nPublic publication and persistence are disabled. No candidate artifacts are retained.\\n\" \"$RESULT\" >> \"$GITHUB_STEP_SUMMARY\""
+        }
+      ]
+    }
+  }
+}
