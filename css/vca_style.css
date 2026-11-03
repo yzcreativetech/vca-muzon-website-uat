@@ -6181,6 +6181,12 @@ button:focus-visible,
   align-items: stretch;
 }
 
+.events-grid > .event-card:only-child {
+  grid-column: 1 / -1;
+  width: min(100%, 640px);
+  justify-self: center;
+}
+
 .event-card {
   display: flex;
   flex-direction: column;
