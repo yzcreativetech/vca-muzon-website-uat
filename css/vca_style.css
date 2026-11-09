@@ -1341,7 +1341,7 @@ body {
 }
 
 .announcement-content h3 {
-  font-size: clamp(1.75rem, 3.25vw, 2.875rem);
+  font-size: clamp(1.75rem, 2.7vw, 2.375rem);
   font-weight: 900;
   line-height: 1.2;
   margin: 0;
